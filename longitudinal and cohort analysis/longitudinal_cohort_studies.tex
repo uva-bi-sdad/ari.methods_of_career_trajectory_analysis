@@ -1,172 +1,6 @@
-% Options for packages loaded elsewhere
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-%
-\documentclass[
-  letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrartcl}
-\usepackage{xcolor}
-\usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-% Make \paragraph and \subparagraph free-standing
-\makeatletter
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}{
-    \@ifstar
-      \xxxParagraphStar
-      \xxxParagraphNoStar
-  }
-  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
-  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}{
-    \@ifstar
-      \xxxSubParagraphStar
-      \xxxSubParagraphNoStar
-  }
-  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
-  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-\makeatother
+\documentclass[./main.tex]{subfiles}
 
-
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
-% Set default figure placement to htbp
-\def\fps@figure{htbp}
-\makeatother
-
-
-
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
- 
-
-
-\KOMAoption{captions}{tableheading}
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\AtBeginDocument{%
-\ifdefined\contentsname
-  \renewcommand*\contentsname{Table of contents}
-\else
-  \newcommand\contentsname{Table of contents}
-\fi
-\ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
-\else
-  \newcommand\listfigurename{List of Figures}
-\fi
-\ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
-\else
-  \newcommand\listtablename{List of Tables}
-\fi
-\ifdefined\figurename
-  \renewcommand*\figurename{Figure}
-\else
-  \newcommand\figurename{Figure}
-\fi
-\ifdefined\tablename
-  \renewcommand*\tablename{Table}
-\else
-  \newcommand\tablename{Table}
-\fi
-}
-\@ifpackageloaded{float}{}{\usepackage{float}}
-\floatstyle{ruled}
-\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\usepackage{bookmark}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
-\hypersetup{
-  pdftitle={Longitudinal Cohort Studies for Career Trajectory Analysis},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
-
-
-\title{Longitudinal Cohort Studies for Career Trajectory Analysis}
-\author{}
-\date{}
 \begin{document}
-\maketitle
-
 
 Longitudinal cohort studies represent a powerful methodological approach
 for understanding how careers evolve over time, providing rich insights
@@ -175,7 +9,7 @@ numerous individuals through their professional journeys, revealing
 patterns and influences that shape career development across different
 contexts and populations.
 
-\subsection{1. Approach Description \&
+\subsubsection{1. Approach Description \&
 Goal}\label{approach-description-goal}
 
 Longitudinal cohort studies employ continuous or repeated measures to
@@ -199,13 +33,13 @@ studies can reveal developmental patterns and causal relationships that
 remain hidden in cross-sectional research, providing a dynamic rather
 than static understanding of career evolution.
 
-\subsection{2. Critical Variables}\label{critical-variables}
+\subsubsection{2. Critical Variables}\label{critical-variables}
 
 Longitudinal cohort studies of career trajectories typically incorporate
 several categories of variables that capture different dimensions of
 career development:
 
-\subsubsection{Demographic Variables}\label{demographic-variables}
+\paragraph{Demographic Variables}\label{demographic-variables}
 
 These include gender, race/ethnicity, socioeconomic background, age, and
 family status, which can reveal how demographic factors influence career
@@ -213,7 +47,7 @@ paths and outcomes{[}6{]}{[}14{]}. These variables are essential for
 identifying disparities in career progression and understanding how
 social identities shape professional experiences.
 
-\subsubsection{Educational Variables}\label{educational-variables}
+\paragraph{Educational Variables}\label{educational-variables}
 
 Educational attainment, field of study, educational transitions,
 continuing education, and professional certifications are frequently
@@ -221,7 +55,7 @@ tracked to understand the relationship between learning and career
 development{[}8{]}{[}6{]}. These variables help researchers understand
 how human capital accumulation affects career trajectories.
 
-\subsubsection{Employment Variables}\label{employment-variables}
+\paragraph{Employment Variables}\label{employment-variables}
 
 Job titles, organizational positions, tenure in positions,
 wages/compensation, employment status (full-time/part-time), job
@@ -229,7 +63,7 @@ transitions, promotions, and lateral moves provide the core data for
 mapping actual career paths{[}2{]}{[}16{]}{[}12{]}. These variables form
 the structural backbone of career trajectory analysis.
 
-\subsubsection{Psychosocial Variables}\label{psychosocial-variables}
+\paragraph{Psychosocial Variables}\label{psychosocial-variables}
 
 Career preparation dimensions (planning, decision-making, confidence),
 identity development, personality traits, career adaptability, and
@@ -237,7 +71,7 @@ psychological well-being capture the psychological aspects of career
 development{[}8{]}{[}10{]}. These variables help explain individual
 differences in career choices and adaptations.
 
-\subsubsection{Contextual Variables}\label{contextual-variables}
+\paragraph{Contextual Variables}\label{contextual-variables}
 
 Labor market conditions, organizational characteristics, industry
 changes, economic cycles, and policy shifts are tracked to understand
@@ -245,7 +79,7 @@ how external factors shape career opportunities and constraints{[}6{]}.
 These variables situate individual careers within broader societal
 contexts.
 
-\subsubsection{Time-Related Variables}\label{time-related-variables}
+\paragraph{Time-Related Variables}\label{time-related-variables}
 
 Time since entry into the workforce, career stages, timing of
 transitions, and duration in particular roles or sectors are essential
@@ -253,9 +87,9 @@ for understanding career velocity and timing{[}12{]}{[}16{]}. These
 temporal variables are unique to longitudinal studies and critical for
 understanding career development as a dynamic process.
 
-\subsection{3. Key Overviews}\label{key-overviews}
+\subsubsection{3. Key Overviews}\label{key-overviews}
 
-\subsubsection{``Longitudinal studies'' (PMC,
+\paragraph{``Longitudinal studies'' (PMC,
 2015)}\label{longitudinal-studies-pmc-2015}
 
 This comprehensive overview explains how longitudinal studies employ
@@ -272,7 +106,7 @@ allows researchers to analyze change over time for both groups and
 individuals, making the approach particularly valuable for understanding
 developmental trajectories{[}1{]}.
 
-\subsubsection{``Longitudinal study''
+\paragraph{``Longitudinal study''
 (Wikipedia)}\label{longitudinal-study-wikipedia}
 
 This article provides a broad overview of longitudinal studies and their
@@ -288,7 +122,7 @@ causal relationships than cross-sectional studies, and disadvantages,
 including resource intensity, attrition effects, and practice effects
 from repeated measurements{[}13{]}.
 
-\subsubsection{``Career Preparation: A Longitudinal, Process-Oriented
+\paragraph{``Career Preparation: A Longitudinal, Process-Oriented
 Examination''}\label{career-preparation-a-longitudinal-process-oriented-examination}
 
 This study bridges identity process literature and career construction
@@ -305,7 +139,7 @@ demonstrates how longitudinal methods can reveal nuanced patterns in
 career development that might be missed in cross-sectional
 studies{[}8{]}.
 
-\subsubsection{``Building Better Pathways: An Analysis of Career
+\paragraph{``Building Better Pathways: An Analysis of Career
 Trajectories and Occupational
 Transitions''}\label{building-better-pathways-an-analysis-of-career-trajectories-and-occupational-transitions}
 
@@ -323,13 +157,13 @@ based on gender, race/ethnicity, and socioeconomic background. The
 findings provide practical implications for career pathway program
 design and workforce development policies{[}6{]}.
 
-\subsection{4. Mathematical Approach}\label{mathematical-approach}
+\subsubsection{4. Mathematical Approach}\label{mathematical-approach}
 
 Longitudinal cohort studies employ sophisticated statistical techniques
 to analyze repeated measures data and account for its complex structure.
 Here are the primary mathematical approaches used:
 
-\subsubsection{Mixed-Effects Models (Hierarchical Linear
+\paragraph{Mixed-Effects Models (Hierarchical Linear
 Models)}\label{mixed-effects-models-hierarchical-linear-models}
 
 These models account for both fixed effects (population-level
@@ -345,7 +179,7 @@ Where: - \[Y_{ij}\] is the response for individual i at time j -
 random effects that vary by individual - \[Z_{ij}\] are predictors for
 random effects - \[\epsilon_{ij}\] is the error term{[}9{]}
 
-\subsubsection{Growth Curve Models}\label{growth-curve-models}
+\paragraph{Growth Curve Models}\label{growth-curve-models}
 
 These models focus specifically on modeling individual trajectories over
 time, allowing for examination of both mean growth patterns and
@@ -356,7 +190,7 @@ individual differences in growth. A simple linear growth model is:
 Where: - \[\beta_{0i} = \gamma_{00} + u_{0i}\] (individual intercept) -
 \[\beta_{1i} = \gamma_{10} + u_{1i}\] (individual slope){[}9{]}{[}10{]}
 
-\subsubsection{Sequence Analysis}\label{sequence-analysis}
+\paragraph{Sequence Analysis}\label{sequence-analysis}
 
 This approach analyzes career patterns by identifying common sequences
 of states or events. It often uses optimal matching algorithms to
@@ -369,14 +203,14 @@ distance between two sequences is calculated as:
 Where P is a sequence of operations transforming sequence a into
 sequence b, and c(p\_i) is the cost of each operation{[}2{]}.
 
-\subsubsection{Generalized Estimating Equations
+\paragraph{Generalized Estimating Equations
 (GEE)}\label{generalized-estimating-equations-gee}
 
 These extend generalized linear models to handle correlated observations
 in longitudinal data, focusing on population-average effects rather than
 individual-specific effects{[}10{]}.
 
-\subsubsection{Survival Analysis/Event History
+\paragraph{Survival Analysis/Event History
 Models}\label{survival-analysisevent-history-models}
 
 These model the time until an event occurs (e.g., job transitions,
@@ -392,9 +226,9 @@ Advanced statistical software is typically needed to implement these
 techniques, accounting for missing data, attrition, and time-varying
 covariates that are common in longitudinal studies{[}9{]}{[}10{]}.
 
-\subsection{5. Example Applications}\label{example-applications}
+\subsubsection{5. Example Applications}\label{example-applications}
 
-\subsubsection{``The Career Paths Less (or More) Traveled: A Sequence
+\paragraph{``The Career Paths Less (or More) Traveled: A Sequence
 Analysis of IT Career Histories, Mobility Patterns, and Career
 Success''}\label{the-career-paths-less-or-more-traveled-a-sequence-analysis-of-it-career-histories-mobility-patterns-and-career-success}
 
@@ -414,7 +248,7 @@ These findings contributed to refining the concept of ``boundaryless''
 careers by tracing the diverse trajectories of career mobility that span
 not only organizational but also occupational boundaries{[}2{]}.
 
-\subsubsection{``Employment trajectories until midlife associate with
+\paragraph{``Employment trajectories until midlife associate with
 early social role investments and current work-related
 well-being''}\label{employment-trajectories-until-midlife-associate-with-early-social-role-investments-and-current-work-related-well-being}
 
@@ -433,7 +267,7 @@ midlife. This application highlights the power of longitudinal cohort
 studies to connect early career factors with long-term outcomes across
 diverse career trajectories{[}12{]}.
 
-\subsubsection{``Career trajectories and cumulative wages: The case of
+\paragraph{``Career trajectories and cumulative wages: The case of
 temporary
 employment''}\label{career-trajectories-and-cumulative-wages-the-case-of-temporary-employment}
 
@@ -452,7 +286,7 @@ consequences of different temporary employment patterns and identify
 factors that facilitated more successful transitions to stable
 employment with better compensation{[}16{]}.
 
-\subsubsection{``Career Trajectories of Women From Underrepresented
+\paragraph{``Career Trajectories of Women From Underrepresented
 Minority
 Groups''}\label{career-trajectories-of-women-from-underrepresented-minority-groups}
 
@@ -471,12 +305,12 @@ longitudinal cohort studies can illuminate the mechanisms behind
 persistent inequities in career development and identify targeted
 interventions to address them{[}14{]}.
 
-\subsection{6. Critiques}\label{critiques}
+\subsubsection{6. Critiques}\label{critiques}
 
 Longitudinal cohort studies, while powerful, face several significant
 limitations as a methodology for studying career trajectories:
 
-\subsubsection{Resource Intensity}\label{resource-intensity}
+\paragraph{Resource Intensity}\label{resource-intensity}
 
 Longitudinal studies are exceptionally time-consuming and expensive to
 conduct, requiring sustained funding and research infrastructure over
@@ -485,7 +319,7 @@ number of studies that can be conducted and may restrict sample sizes,
 particularly for studies following specialized populations or rare
 career paths.
 
-\subsubsection{Attrition Effects}\label{attrition-effects}
+\paragraph{Attrition Effects}\label{attrition-effects}
 
 Participant dropout over time (attrition) represents a major
 methodological challenge that can bias results. As noted in the
@@ -495,7 +329,7 @@ Attrition rarely occurs randomly; participants who remain often differ
 systematically from those who drop out, potentially leading to
 misleading conclusions about career development patterns.
 
-\subsubsection{Practice Effects}\label{practice-effects}
+\paragraph{Practice Effects}\label{practice-effects}
 
 Repeated measurement can lead to practice effects where participants'
 responses change due to familiarity with assessment procedures rather
@@ -504,7 +338,7 @@ artifacts, particularly for self-reported variables like career
 attitudes or decision-making processes, which may show apparent changes
 that are actually methodological artifacts.
 
-\subsubsection{Limited Causal Inference}\label{limited-causal-inference}
+\paragraph{Limited Causal Inference}\label{limited-causal-inference}
 
 While longitudinal designs offer advantages over cross-sectional studies
 for causal inference, they remain observational in nature, limiting
@@ -513,7 +347,7 @@ experimental designs{[}13{]}. Unobserved confounding variables may still
 account for apparent relationships between predictors and career
 outcomes.
 
-\subsubsection{Rapidly Changing
+\paragraph{Rapidly Changing
 Contexts}\label{rapidly-changing-contexts}
 
 Modern careers unfold in rapidly evolving economic and technological
@@ -523,7 +357,7 @@ transformed substantially, potentially reducing the relevance of
 findings{[}17{]}. This is particularly problematic for studying careers
 in volatile sectors or during periods of economic transformation.
 
-\subsubsection{Sample Size Requirements}\label{sample-size-requirements}
+\paragraph{Sample Size Requirements}\label{sample-size-requirements}
 
 Rare career events or transitions require very large initial samples to
 yield meaningful data{[}17{]}. This creates practical challenges for
@@ -531,7 +365,7 @@ studying specialized career paths or uncommon but important career
 phenomena, such as rapid advancement to executive leadership or
 innovative entrepreneurship.
 
-\subsubsection{Cohort Effects}\label{cohort-effects}
+\paragraph{Cohort Effects}\label{cohort-effects}
 
 While controlling for age effects, longitudinal studies may still be
 influenced by cohort effects if all participants belong to the same
@@ -539,9 +373,9 @@ generation{[}1{]}{[}13{]}. This limits generalizability across different
 generational cohorts who may experience fundamentally different career
 contexts and norms.
 
-\subsection{7. Software}\label{software}
+\subsubsection{7. Software}\label{software}
 
-\subsubsection{R Package: lme4}\label{r-package-lme4}
+\paragraph{R Package: lme4}\label{r-package-lme4}
 
 The lme4 package is a powerful tool in R for fitting linear and
 generalized linear mixed-effects models, which are essential for
@@ -559,7 +393,7 @@ documentation, and integration with the broader R ecosystem, allowing it
 to handle large-scale longitudinal datasets common in career trajectory
 research{[}9{]}.
 
-\subsubsection{Python Package:
+\paragraph{Python Package:
 statsmodels}\label{python-package-statsmodels}
 
 The statsmodels package in Python provides comprehensive tools for
@@ -579,7 +413,7 @@ necessary statistical rigor while benefiting from Python's broader
 capabilities in data processing, machine learning, and
 automation{[}10{]}.
 
-\subsubsection{R Package: TraMineR}\label{r-package-traminer}
+\paragraph{R Package: TraMineR}\label{r-package-traminer}
 
 TraMineR is a specialized R package designed specifically for trajectory
 and sequence analysis, making it particularly valuable for career path
@@ -598,7 +432,7 @@ and transitions between different states, making it invaluable for
 researchers seeking to identify typologies of career paths and
 understand the timing and sequencing of career transitions.
 
-\subsubsection{R Package: leaspy}\label{r-package-leaspy}
+\paragraph{R Package: leaspy}\label{r-package-leaspy}
 
 Leaspy is a software package specifically designed for the statistical
 analysis of longitudinal data, making it particularly valuable for
@@ -616,7 +450,7 @@ model career progression rates across different populations, identify
 factors affecting career velocity, and predict future career states
 based on early trajectory patterns{[}5{]}.
 
-\subsubsection{Mplus Software}\label{mplus-software}
+\paragraph{Mplus Software}\label{mplus-software}
 
 Mplus is a comprehensive statistical modeling program widely used for
 complex longitudinal data analysis in psychology and social science
@@ -635,11 +469,11 @@ longitudinal data makes it particularly valuable for identifying
 distinct career trajectory groups and understanding the factors that
 predict membership in different trajectory classes.
 
-\subsection{8. Example Study Design: Longitudinal Analysis of U.S. Army
+\subsubsection{8. Example Study Design: Longitudinal Analysis of U.S. Army
 Officer Career
 Trajectories}\label{example-study-design-longitudinal-analysis-of-u.s.-army-officer-career-trajectories}
 
-\subsubsection{Key Variables}\label{key-variables}
+\paragraph{Key Variables}\label{key-variables}
 
 \paragraph{Branch-Specific Indicators}\label{branch-specific-indicators}
 
@@ -725,7 +559,7 @@ Indicators}\label{non-cognitive-attribute-indicators}
   Cohort-specific events (wars, major operations, institutional reforms)
 \end{itemize}
 
-\subsubsection{Sample \& Data Collection}\label{sample-data-collection}
+\paragraph{Sample \& Data Collection}\label{sample-data-collection}
 
 This 20-year longitudinal study will follow a stratified random sample
 of 1,200 Army officers (300 from each branch: Armor, Logistics,
@@ -818,7 +652,7 @@ Assessments}\label{special-event-triggered-assessments}
   Exit processing data for those leaving service
 \end{itemize}
 
-\subsubsection{Analysis Approach}\label{analysis-approach}
+\paragraph{Analysis Approach}\label{analysis-approach}
 
 \paragraph{Sequence Analysis and Typology
 Development}\label{sequence-analysis-and-typology-development}
@@ -903,7 +737,7 @@ Analysis}\label{mediator-and-moderator-analysis}
   factors to shape career decisions
 \end{itemize}
 
-\subsubsection{Potential Findings}\label{potential-findings}
+\paragraph{Potential Findings}\label{potential-findings}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -944,7 +778,7 @@ Analysis}\label{mediator-and-moderator-analysis}
   accelerated early advancement but fewer senior positions.
 \end{enumerate}
 
-\subsubsection{Potential Implications}\label{potential-implications}
+\paragraph{Potential Implications}\label{potential-implications}
 
 \paragraph{Talent Management
 Implications}\label{talent-management-implications}
@@ -1030,7 +864,7 @@ management that acknowledge the diversity of successful career paths
 while optimizing both individual development and organizational
 effectiveness.
 
-\subsection{Sources}\label{sources}
+\subsubsection{Sources}\label{sources}
 
 {[}1{]} Longitudinal studies - PMC - PubMed Central
 https://pmc.ncbi.nlm.nih.gov/articles/PMC4669300/\\
