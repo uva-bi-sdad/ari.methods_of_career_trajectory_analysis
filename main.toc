@@ -1,0 +1,59 @@
+\contentsline {section}{\numberline {1}Descriptive and Classification Methods}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Demographic Analysis Methodology}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Approach Description \& Goal}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Critical Variables}{3}{subsubsection.1.1.2}%
+\contentsline {paragraph}{}{3}{section*.1}%
+\contentsline {paragraph}{}{3}{section*.1}%
+\contentsline {paragraph}{}{4}{section*.1}%
+\contentsline {paragraph}{}{4}{section*.1}%
+\contentsline {subsubsection}{\numberline {1.1.3}Key Overviews}{4}{subsubsection.1.1.3}%
+\contentsline {paragraph}{}{4}{section*.2}%
+\contentsline {paragraph}{}{4}{section*.2}%
+\contentsline {paragraph}{}{5}{section*.2}%
+\contentsline {subsubsection}{\numberline {1.1.4}Mathematical Approach}{5}{subsubsection.1.1.4}%
+\contentsline {paragraph}{}{5}{section*.3}%
+\contentsline {paragraph}{}{6}{equation.1}%
+\contentsline {paragraph}{}{6}{equation.2}%
+\contentsline {paragraph}{}{6}{equation.2}%
+\contentsline {paragraph}{}{7}{equation.3}%
+\contentsline {subsubsection}{\numberline {1.1.5}Example Applications}{7}{subsubsection.1.1.5}%
+\contentsline {paragraph}{}{7}{section*.4}%
+\contentsline {paragraph}{}{8}{section*.4}%
+\contentsline {paragraph}{}{8}{section*.4}%
+\contentsline {subsubsection}{\numberline {1.1.6}Critiques}{9}{subsubsection.1.1.6}%
+\contentsline {paragraph}{}{9}{section*.5}%
+\contentsline {paragraph}{}{9}{section*.5}%
+\contentsline {paragraph}{}{9}{section*.5}%
+\contentsline {paragraph}{}{10}{section*.5}%
+\contentsline {subsubsection}{\numberline {1.1.7}Software}{10}{subsubsection.1.1.7}%
+\contentsline {paragraph}{}{10}{section*.6}%
+\contentsline {paragraph}{}{10}{section*.6}%
+\contentsline {paragraph}{}{11}{section*.6}%
+\contentsline {subsubsection}{\numberline {1.1.8}Example Study Design: Demographic Analysis of U.S. Army Officers' Career Trajectories}{11}{subsubsection.1.1.8}%
+\contentsline {paragraph}{Demographic Variables}{12}{section*.7}%
+\contentsline {paragraph}{Career Milestone Variables}{12}{section*.7}%
+\contentsline {paragraph}{Non-Cognitive Attribute Variables}{12}{section*.7}%
+\contentsline {paragraph}{Outcome Variables}{12}{section*.7}%
+\contentsline {paragraph}{}{12}{section*.7}%
+\contentsline {paragraph}{}{12}{section*.7}%
+\contentsline {paragraph}{}{13}{section*.7}%
+\contentsline {paragraph}{}{13}{section*.7}%
+\contentsline {paragraph}{Descriptive Analysis}{13}{section*.7}%
+\contentsline {paragraph}{Sequence Analysis}{13}{section*.7}%
+\contentsline {paragraph}{Event History Analysis}{13}{section*.7}%
+\contentsline {paragraph}{Decomposition Analysis}{13}{section*.7}%
+\contentsline {paragraph}{Statistical Modeling}{14}{section*.7}%
+\contentsline {paragraph}{Comparative Analysis}{14}{section*.7}%
+\contentsline {paragraph}{}{14}{section*.7}%
+\contentsline {paragraph}{Differential Career Trajectories}{14}{section*.7}%
+\contentsline {paragraph}{Branch-Specific Effects}{14}{section*.7}%
+\contentsline {paragraph}{Critical Junctures}{14}{section*.7}%
+\contentsline {paragraph}{Compensatory Factors}{14}{section*.7}%
+\contentsline {paragraph}{Changing Patterns Over Time}{14}{section*.7}%
+\contentsline {paragraph}{}{15}{section*.7}%
+\contentsline {paragraph}{Talent Management Policies}{15}{section*.7}%
+\contentsline {paragraph}{Branch-Specific Interventions}{15}{section*.7}%
+\contentsline {paragraph}{Leadership Development}{15}{section*.7}%
+\contentsline {paragraph}{Organizational Culture}{15}{section*.7}%
+\contentsline {paragraph}{Policy Evaluation}{15}{section*.7}%
+\contentsline {section}{\numberline {2}Conclusion}{15}{section.2}%
