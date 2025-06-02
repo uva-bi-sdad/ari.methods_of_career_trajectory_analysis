@@ -1,0 +1,184 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+Agent-based modeling (ABM) represents a powerful computational approach for understanding complex systems through the simulation of individual autonomous agents and their interactions. In the context of career trajectory analysis, ABM offers a unique bottom-up methodology that models individual career decisions, organizational dynamics, and environmental factors to reveal emergent patterns in professional advancement and retention. This approach differs fundamentally from traditional regression-based methods by explicitly representing individual agents (professionals) with specific attributes and behavioral rules, allowing researchers to explore how micro-level decisions and interactions generate macro-level career outcomes. ABM is particularly valuable for career trajectory research because it can capture the non-linear, path-dependent nature of professional development, account for heterogeneity among individuals, and simulate counterfactual scenarios that would be impossible or unethical to test in real-world settings[1][2].
+
+\subsubsection{Approach Description \& Goal}
+
+Agent-based modeling is a computational modeling technique that simulates the actions and interactions of autonomous agents to understand the behavior of complex systems and what governs their outcomes[2]. ABM combines elements of game theory, complex systems theory, emergence, computational sociology, multi-agent systems, and evolutionary programming[2]. The approach operates on the principle that complex system-level phenomena emerge from the interactions of individual agents following relatively simple behavioral rules[1][2].
+
+In career trajectory analysis, ABM serves multiple purposes. First, it enables researchers to model the dynamic interplay between individual career decisions, organizational policies, and external environmental factors that shape professional advancement pathways. Second, it allows for the exploration of emergent patterns in career outcomes that arise from the collective behavior of many individual professionals within organizational hierarchies. Third, ABM facilitates the testing of interventions and policy changes in virtual environments, providing insights into potential consequences before real-world implementation[1][19].
+
+The fundamental goal of ABM in career research is to bridge the gap between micro-level individual behaviors and macro-level organizational or societal outcomes. This bottom-up approach recognizes that career trajectories are not simply determined by individual characteristics or organizational structures alone, but emerge from the complex interactions between professionals, their colleagues, supervisors, organizational policies, and broader environmental factors[17][19].
+
+\subsubsection{Critical Variables}
+
+Agent-based models for career trajectory analysis typically incorporate several categories of variables that capture the multi-dimensional nature of professional development. **Agent attributes** form the foundation of ABM models and include both observable characteristics such as education level, work experience, performance ratings, and demographic variables, as well as unobservable traits like motivation, risk tolerance, and career aspirations[1][11]. These attributes may be static (e.g., gender, race) or dynamic (e.g., skills, experience, motivation levels that change over time).
+
+**Behavioral rules** constitute another critical variable category, defining how agents make career-related decisions such as job applications, promotion seeking, networking activities, and departure decisions. These rules often incorporate bounded rationality assumptions, where agents make decisions based on limited information and simple heuristics rather than perfect optimization[2][11]. **Interaction patterns** specify how agents influence each other through mentoring relationships, peer networks, competition for positions, and collaborative activities.
+
+**Environmental variables** capture the organizational and external context within which career trajectories unfold, including promotion rates, organizational culture, economic conditions, and policy changes[1][19]. **Temporal dynamics** account for how variables change over time, including career stage effects, cohort effects, and historical period influences. Finally, **stochastic elements** introduce randomness to reflect the inherent uncertainty in career outcomes, often implemented through Monte Carlo methods to capture the probabilistic nature of career events[2][11].
+
+\subsubsection{Key Overviews}
+
+The seminal work "Growing Artificial Societies: Social Science from the Bottom Up" by Joshua Epstein and Robert Axtell provides the foundational framework for understanding agent-based modeling in social science applications[4][13][16][18]. This groundbreaking book introduces the Sugarscape model, where artificial agents with simple behavioral rules generate complex emergent social phenomena including wealth distribution, cultural transmission, and demographic patterns. The authors demonstrate how fundamental collective behaviors such as group formation, combat, and trade emerge from individual agent interactions, establishing ABM as a viable approach for studying social systems from the bottom up. Their work shows how populations of agents competing for resources can produce realistic social dynamics, providing a template for modeling career competition and advancement within organizational hierarchies.
+
+The comprehensive textbook "Agent-Based and Individual-Based Modeling: A Practical Introduction" by Steven Railsback and Volker Grimm serves as the standard educational resource for ABM methodology[5]. This authoritative guide takes readers through the complete modeling process from conceptual design to computer implementation and analysis, with particular emphasis on adaptive behaviors that make ABM necessary for understanding complex systems. The authors provide step-by-step instruction in designing, programming, and documenting agent-based models using NetLogo, while also addressing pattern-oriented modeling strategies essential for real-world applications. Their approach emphasizes the importance of grounding models in empirical observations and using them as tools for understanding complex systems rather than mere computational exercises.
+
+The tutorial "Agent-Based Modeling and Simulation Part 2: How to Model with Agents" by Macal and North provides a practical framework for implementing ABM across diverse applications[3]. This influential work outlines the essential components of agent-based models, including agent specification at various scales, decision-making heuristics, learning rules, interaction topologies, and environmental factors. The authors demonstrate ABM implementation through supply chain examples, showing how agent attributes, environmental factors, and interaction methods combine to create realistic simulations. Their tutorial emphasizes that ABM represents a new approach to modeling systems comprised of interacting autonomous agents, with far-reaching implications for business decision-making and scientific research.
+
+The Wikipedia entry on agent-based modeling provides a comprehensive overview of the field's scope and applications across multiple disciplines[2]. This resource explains how ABM differs from traditional analytical methods by focusing on the generative capacity to produce emergent phenomena rather than characterizing system equilibria. The entry details how ABM can explain the emergence of higher-order patterns such as network structures, power-law distributions, and social segregation despite individual-level tolerance. It emphasizes the methodology's strength in identifying leverage points for intervention and distinguishing types of path dependency, making it particularly relevant for understanding career trajectory dynamics where small changes can have significant long-term consequences.
+
+\subsubsection{Mathematical Approach}
+
+The mathematical foundation of agent-based modeling rests on discrete event simulation and stochastic processes. At its core, ABM represents a system as a collection of $$ N $$ agents, where each agent $$ i $$ is characterized by a state vector $$ \mathbf{s}_i(t) $$ at time $$ t $$[2][3]. The state vector includes all relevant attributes such as skills, experience, motivation, and position within an organizational hierarchy.
+
+The temporal evolution of the system follows the general form:
+$$
+\mathbf{s}_i(t+1) = f_i(\mathbf{s}_i(t), \mathbf{E}(t), \mathbf{I}_i(t), \boldsymbol{\epsilon}_i(t))
+$$
+where $$ f_i $$ represents the behavioral rules governing agent $$ i $$, $$ \mathbf{E}(t) $$ denotes environmental conditions, $$ \mathbf{I}_i(t) $$ captures interactions with other agents, and $$ \boldsymbol{\epsilon}_i(t) $$ introduces stochastic elements[3][11].
+
+For career trajectory modeling, interaction effects are particularly important. Agent interactions can be modeled through network structures where the influence of agent $$ j $$ on agent $$ i $$ follows:
+$$
+I_{ij}(t) = w_{ij} \cdot g(\mathbf{s}_j(t), d_{ij})
+$$
+where $$ w_{ij} $$ represents the strength of connection between agents, $$ g(\cdot) $$ is an influence function, and $$ d_{ij} $$ measures the distance between agents in relevant attribute space[14].
+
+Career advancement decisions often incorporate utility maximization with bounded rationality. An agent's decision to pursue promotion might follow:
+$$
+P(\text{pursue promotion}) = \frac{\exp(\beta \cdot U_{\text{promotion}})}{\exp(\beta \cdot U_{\text{promotion}}) + \exp(\beta \cdot U_{\text{status quo}})}
+$$
+where $$ U_{\text{promotion}} $$ and $$ U_{\text{status quo}} $$ represent the perceived utilities of pursuing promotion versus maintaining current position, and $$ \beta $$ controls the rationality level[11].
+
+Monte Carlo methods enable the exploration of stochastic outcomes through repeated simulation runs. For $$ M $$ simulation replications, the expected value of any outcome variable $$ Y $$ is estimated as:
+$$
+E[Y] \approx \frac{1}{M} \sum_{m=1}^{M} Y_m
+$$
+with confidence intervals constructed using the central limit theorem[2]. This approach allows researchers to quantify uncertainty in career outcome predictions and assess the robustness of findings across different random realizations.
+
+\subsubsection{Example Applications}
+
+John Bullinaria's research on "Agent-Based Models of Gender Inequalities in Career Progression" demonstrates a sophisticated application of ABM to understanding workplace advancement patterns[6][14]. This study creates artificial populations of agents competing for promotion within professional hierarchies, allowing for the systematic exploration of how gender imbalances emerge and evolve over time. The model incorporates heterogeneous agent abilities, promotion criteria that may include direct or indirect discrimination, and dynamic factors such as experience accumulation and career stage effects. Through simulation experiments, Bullinaria shows how seemingly fair promotion processes can still generate significant gender imbalances due to subtle biases in evaluation criteria or differential career preferences. The research demonstrates ABM's capacity to identify specific signals indicating the presence or absence of discrimination and to test the effectiveness of various intervention strategies before real-world implementation.
+
+The graduate engineering attrition study described in "Exploring the Viability of Agent-Based Modeling to Extend Qualitative Research" represents an innovative application of ABM to educational career trajectories[11]. This research team leveraged ten years of qualitative interview data with current and former graduate students to develop computational models of doctoral persistence and departure decisions. The ABM incorporates multiple factors affecting student motivation including advisor relationships, financial stress, research progress, and social integration, with each student-agent moving through academic years while experiencing randomly assigned values for these variables. The model includes critical events that can dramatically alter career paths and accounts for sunk cost effects that influence persistence decisions. This application demonstrates how ABM can extend qualitative research by enabling systematic exploration of complex interactions between individual characteristics, institutional factors, and environmental conditions that qualitative methods alone cannot fully capture.
+
+Both applications illustrate ABM's unique strength in career trajectory research: the ability to model individual heterogeneity while revealing system-level patterns that emerge from complex interactions. These studies show how ABM can bridge micro-level individual experiences with macro-level organizational or institutional outcomes, providing insights that neither purely individual-focused nor aggregate-level analyses could achieve. The approaches also demonstrate ABM's value for policy evaluation, allowing researchers to test interventions in virtual environments before costly real-world implementation.
+
+\subsubsection{Critiques}
+
+Agent-based modeling faces several significant limitations when applied to career trajectory analysis. **Data parameter challenges** represent a primary concern, as ABM requires detailed information about agent attributes, behavioral rules, and interaction patterns that are often difficult to obtain from existing literature or datasets[1]. Career-related variables such as motivation, networking effectiveness, or decision-making heuristics may not be readily available or measurable, forcing researchers to make assumptions that could compromise model validity.
+
+**Model validation difficulties** pose another substantial challenge, particularly when modeling unobserved associations or counterfactual scenarios[1]. Unlike traditional statistical approaches where model fit can be assessed through established goodness-of-fit measures, ABM validation often relies on pattern matching between simulated and observed outcomes, which can be subjective and may not capture all relevant aspects of career dynamics[1][2]. The complexity of ABM makes it difficult to isolate the effects of specific model components or to determine whether emergent patterns result from realistic mechanisms or modeling artifacts.
+
+**Computational complexity and interpretation challenges** also limit ABM's applicability[2]. Career trajectory models may require extensive computational resources for adequate exploration of parameter space and uncertainty quantification. Additionally, the emergent nature of ABM outcomes can make it difficult to trace causal pathways or provide clear explanations for observed patterns, potentially limiting the actionable insights that can be derived from simulation results. The stochastic nature of ABM means that multiple runs are necessary to establish robust findings, further increasing computational demands and complicating interpretation of results[1][11].
+
+\subsubsection{Software}
+
+**Mesa** represents a leading Python framework for agent-based modeling, designed with accessibility and flexibility as core principles[7]. This Apache2 licensed library provides built-in core components including spatial grids, agent schedulers, and data collection tools, while allowing for extensive customization through user-defined implementations. Mesa's integration with modern Python data science tools enables seamless analysis workflows, and its browser-based Solara visualization system facilitates interactive model exploration and presentation. The framework emphasizes making simulations accessible to researchers across disciplines, supporting both novice and advanced users through comprehensive documentation and example model libraries. Mesa's modular architecture allows researchers to focus on model-specific logic rather than low-level implementation details, making it particularly suitable for career trajectory modeling where complex organizational structures and individual behaviors must be represented.
+
+**AgentPy** offers a comprehensive Python library specifically optimized for interactive computing environments like Jupyter notebooks[8]. This open-source framework integrates model design, interactive simulations, numerical experiments, and data analysis within a unified environment, streamlining the research workflow from initial model development through publication-ready results. AgentPy's optimization for IPython and Jupyter makes it particularly valuable for exploratory research and educational applications where iterative model development and immediate visualization of results are essential. The library provides extensive documentation, tutorials, and comparison with other ABM frameworks, making it accessible to researchers new to agent-based modeling while offering sufficient sophistication for advanced applications in career trajectory analysis.
+
+**NetLogoR** provides R users with agent-based modeling capabilities by translating the popular NetLogo framework into native R functions[9]. This package enables spatially explicit agent-based modeling entirely within the R environment, allowing researchers to leverage R's extensive statistical and visualization capabilities alongside ABM simulation. NetLogoR follows the same conceptual framework as NetLogo while providing the versatility and massive resources of the R ecosystem, making it particularly attractive for researchers already familiar with R for statistical analysis. The package includes example models and comprehensive documentation, though installation currently requires GitHub access due to CRAN dependency issues.
+
+**SpaDES** (Spatial Discrete Event Simulation) offers a generic simulation platform within R that supports various model types including agent-based, raster-based, and event-based models[10]. This framework emphasizes modularity and reusability, enabling researchers to build complex simulations by combining discrete event simulation components. SpaDES facilitates interaction between multiple processes through shared data objects and event scheduling, making it suitable for career trajectory modeling where multiple organizational processes (hiring, promotion, departure) operate simultaneously. The platform's focus on spatial modeling and its integration with R's spatial analysis packages make it particularly valuable for research examining geographic aspects of career mobility and organizational location effects.
+
+**NetLogo** remains one of the most widely used ABM platforms, though not specifically mentioned in individual search results, it appears frequently as the reference standard for ABM implementation[5][11]. This standalone software provides a user-friendly programming language designed specifically for agent-based modeling, with extensive documentation, tutorials, and a large community of users. NetLogo's graphical interface and simplified programming syntax make it accessible to researchers without extensive programming backgrounds, while its performance capabilities and model library provide sufficient sophistication for serious research applications in career trajectory analysis.
+
+\subsubsection{Example Study Design}
+
+\subsubsubsection{Key Variables}
+
+This ABM study would model U.S. Army officer career trajectories using multi-dimensional agent attributes representing individual characteristics, performance indicators, and environmental factors. **Agent attributes** would include demographic variables (age, gender, education level), cognitive abilities (leadership scores, technical competency ratings), and branch-specific competencies varying by specialization (Armor: tactical proficiency, equipment maintenance scores; Logistics: supply chain management, resource optimization; Aviation: flight hours, safety records; Cyber: cybersecurity certifications, technical innovation metrics). **Performance variables** would encompass annual evaluation ratings, 360-degree feedback scores, mission success rates, and peer leadership assessments, with branch-specific performance indicators reflecting unique operational requirements.
+
+**Career decision variables** would capture promotion seeking behavior, lateral movement preferences, geographic mobility willingness, and separation intentions, modeled as probabilistic functions of agent attributes and environmental conditions. **Network variables** would represent mentorship relationships, peer connections, and sponsor affiliations that influence career advancement opportunities. **Organizational variables** would include promotion board composition, selection rates by branch and grade, assignment availability, and policy changes affecting career progression. **Environmental factors** would encompass operational tempo, budget constraints, force structure changes, and external economic conditions that influence retention and advancement patterns across different career fields.
+
+\subsubsubsection{Sample \& Data Collection}
+
+The study would utilize a representative sample of 10,000 virtual agents initialized to match the demographic and performance distributions of actual U.S. Army officer cohorts across the four branch divisions. **Administrative data** would be collected from Army personnel databases including Officer Record Briefs, evaluation reports, assignment histories, and promotion outcomes to calibrate agent initialization parameters and validate model outputs. **Survey data** would be gathered from active duty officers regarding career preferences, decision-making factors, network relationships, and satisfaction measures to inform behavioral rule development.
+
+**Longitudinal cohort tracking** would follow multiple officer year groups over 20-year simulation periods, with data collection occurring at annual intervals to capture promotion decisions, assignment changes, and separation events. **Focus groups and interviews** with officers at different career stages would provide qualitative insights into decision-making processes and organizational culture factors that quantitative data cannot capture. **Historical policy analysis** would examine the impact of major personnel policy changes, force structure modifications, and operational requirements on career progression patterns, providing validation data for scenario testing and model calibration across different time periods and organizational contexts.
+
+\subsubsubsection{Analysis Approach}
+
+The analysis would employ a multi-phase approach beginning with **model calibration** using historical data to ensure simulated career progression patterns match observed outcomes across branches and time periods. **Sensitivity analysis** would systematically vary key parameters to identify which factors most strongly influence career trajectory outcomes, providing insights into critical decision points and organizational leverage points. **Scenario modeling** would test the effects of proposed policy changes, such as modified promotion criteria, enhanced mentorship programs, or altered assignment patterns, before real-world implementation.
+
+**Emergent pattern analysis** would examine how individual-level decisions and interactions generate branch-level and Army-wide career outcomes, identifying unexpected consequences of current policies and practices. **Network analysis** would explore how relationship patterns influence career advancement, examining the role of mentorship, sponsorship, and peer networks in shaping trajectory outcomes. **Comparative branch analysis** would investigate how different operational requirements and organizational cultures across Armor, Logistics, Aviation, and Cyber branches lead to distinct career progression patterns and retention outcomes. Multiple simulation runs with different random seeds would enable uncertainty quantification and robust statistical inference about policy intervention effects.
+
+\subsubsubsection{Potential Findings}
+
+The study might reveal **emergent bottlenecks** in career progression that result from the complex interaction of individual preferences, organizational needs, and promotion timing, potentially identifying previously unrecognized sources of talent loss. **Branch-specific retention patterns** could emerge showing how different operational tempos, deployment frequencies, and technical demands create distinct career trajectory challenges requiring tailored retention strategies. The analysis might uncover **network effects** where informal mentorship and sponsorship relationships create unequal advancement opportunities, with some officers benefiting from strong network connections while others remain disadvantaged despite comparable performance.
+
+**Policy interaction effects** could demonstrate how seemingly beneficial changes in one area (e.g., extended training opportunities) might have unintended negative consequences in others (e.g., delayed promotion timing leading to increased separation rates). The model might reveal **critical decision points** where small changes in individual circumstances or organizational policies lead to dramatically different long-term career outcomes, highlighting periods when targeted interventions could be most effective. **Cross-branch mobility patterns** could show how officer transfers between specializations create opportunities or challenges for career advancement, with implications for force structure planning and talent management strategies.
+
+\subsubsubsection{Potential Implications}
+
+The findings could inform **evidence-based personnel policy development** by providing quantitative predictions of how proposed changes would affect officer retention, promotion equity, and overall force readiness across different branches. **Targeted intervention strategies** could be developed based on identified critical decision points and leverage factors, enabling more effective use of limited resources for retention and career development programs. The research might support **individualized career counseling** by identifying personal and environmental factors that predict successful career outcomes in different specializations.
+
+**Organizational culture insights** could guide leadership development and mentorship program design by revealing how informal networks and relationships shape career trajectories. **Resource allocation decisions** could be informed by understanding how training investments, assignment policies, and promotion criteria interact to influence long-term personnel outcomes. The study could contribute to **strategic workforce planning** by demonstrating how current policies and practices might affect future officer inventory and capability across critical specializations. Finally, the validated ABM framework could serve as an ongoing **policy laboratory** for testing future personnel innovations before implementation, reducing the risk of unintended consequences in real-world career management systems.
+
+\begin{thebibliography}{20}
+
+\bibitem{columbia_abm}
+Columbia University Mailman School of Public Health. (2022). Agent-Based Modeling. \textit{Population Health Methods}. Retrieved from https://www.publichealth.columbia.edu/research/population-health-methods/agent-based-modeling
+
+\bibitem{wikipedia_abm}
+Wikipedia. (2004). Agent-based model. \textit{Wikipedia}. Retrieved from https://en.wikipedia.org/wiki/Agent\_based\_model
+
+\bibitem{macal_north}
+Macal, C. M., \& North, M. J. Tutorial on Agent-based Modeling and Simulation Part 2: How to Model with Agents. \textit{Proceedings of the 2006 Winter Simulation Conference}. Retrieved from https://www.cs.rice.edu/~devika/evac/papers/macalNorth.pdf
+
+\bibitem{epstein_axtell_mit}
+Epstein, J. M., \& Axtell, R. L. (1996). \textit{Growing Artificial Societies: Social Science from the Bottom Up}. MIT Press. Retrieved from https://mitpress.mit.edu/9780262550253/growing-artificial-societies/
+
+\bibitem{railsback_grimm}
+Railsback, S. F., \& Grimm, V. (2023). \textit{Agent-Based and Individual-Based Modeling: A Practical Introduction, 2nd Edition}. Princeton University Press. Retrieved from https://openlibrary.telkomuniversity.ac.id/pustaka/197671/agent-based-and-individual-based-modeling-a-practical-introduction-2-e-.html
+
+\bibitem{bullinaria_gender}
+Bullinaria, J. A. (2018). Agent-Based Models of Gender Inequalities in Career Progression. \textit{Journal of Artificial Societies and Social Simulation}, 21(3), 7. Retrieved from https://www.jasss.org/21/3/7.html
+
+\bibitem{mesa_python}
+Mesa Development Team. (2025). Mesa: Agent-based modeling in Python. Retrieved from https://mesa.readthedocs.io
+
+\bibitem{agentpy}
+Foramitti, J. (2021). AgentPy: A package for agent-based modeling in Python. \textit{Journal of Open Source Software}, 6(62), 3065. Retrieved from https://pypi.org/project/agentpy/
+
+\bibitem{netlogor}
+Bauduin, S., McIntire, E. J. B., \& Chubaty, A. M. (2019). NetLogoR: Build and Run Spatially Explicit Agent-Based Models. Retrieved from https://netlogor.predictiveecology.org
+
+\bibitem{spades}
+Chubaty, A. M., \& McIntire, E. J. B. (2024). SpaDES: Spatial Discrete Event Simulation. \textit{CRAN - R Project}. Retrieved from https://cran.r-project.org/web/packages/SpaDES.core/vignettes/i-introduction.html
+
+\bibitem{graduate_attrition}
+Author. (2023). Exploring the Viability of Agent-Based Modeling to Extend Qualitative Research: Comparison of Computational Platforms. \textit{Proceedings of the 2023 ASEE Annual Conference}. Retrieved from https://peer.asee.org/exploring-the-viability-of-agent-based-modeling-to-extend-qualitative-research-comparison-of-computational-platforms.pdf
+
+\bibitem{wikipedia_abm_duplicate}
+Wikipedia. (2004). Agent-based model. \textit{Wikipedia}. Retrieved from https://en.wikipedia.org/wiki/Agent-based\_model
+
+\bibitem{epstein_axtell_mit_direct}
+Epstein, J. M., \& Axtell, R. L. (1996). \textit{Growing Artificial Societies: Social Science from the Bottom Up}. MIT Press Direct. Retrieved from https://direct.mit.edu/books/monograph/2503/Growing-Artificial-SocietiesSocial-Science-from
+
+\bibitem{bullinaria_pdf}
+Bullinaria, J. A. (2018). Agent-Based Models of Gender Inequalities in Career Progression. \textit{Journal of Artificial Societies and Social Simulation}, 21(3), 7. Retrieved from https://www.jasss.org/21/3/7/7.pdf
+
+\bibitem{libretexts_abm}
+Izquierdo, L. R., Izquierdo, S. S., \& Sandholm, W. H. (2023). Introduction to agent-based modeling. \textit{Mathematics LibreTexts}. Retrieved from https://math.libretexts.org/Bookshelves/Applied\_Mathematics/Agent-Based\_Evolutionary\_Game\_Dynamics\_(Izquierdo\_Izquierdo\_and\_Sandholm)/01\%3A\_Introduction/1.02\%3A\_Introduction\_to\_agent-based\_modeling
+
+\bibitem{brookings_artificial}
+Brookings Institution. (2020). Growing Artificial Societies. Retrieved from https://www.brookings.edu/books/growing-artificial-societies/
+
+\bibitem{smythos_netlogo}
+Smythos. (2025). Understanding Agent-Based Modeling: An Overview with NetLogo. Retrieved from https://smythos.com/ai-agents/agent-architectures/agent-based-modeling-and-netlogo/
+
+\bibitem{complexity_explorer}
+Complexity Explorer. (2025). Growing Artificial Societies: Social Science from the Bottom Up. Retrieved from https://www.complexityexplorer.org/explore/resources/509-growing-artificial-societies-social-science-from-the-bottom-up
+
+\bibitem{fourweekmba}
+FourWeekMBA. (2024). Agent-Based Modeling. Retrieved from https://fourweekmba.com/agent-based-modeling/
+
+\bibitem{4strat_abm}
+4strat. (2025). Agentenbasierte Modellierung. Retrieved from https://www.4strat.com/strategy/agent-based-modelling-abm/
+
+\end{thebibliography}
+
+\end{document}

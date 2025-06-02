@@ -1,0 +1,217 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+Policy-Testing Simulation represents a computational methodology that combines agent-based modeling, microsimulation, and discrete event simulation techniques to analyze how different policy interventions affect career trajectory outcomes over time. This approach enables researchers and policymakers to create virtual laboratories where various career development policies can be tested and evaluated before real-world implementation, providing insights into promotion patterns, retention rates, and overall career progression dynamics under different organizational and policy conditions[6][19].
+
+\subsubsection{Approach Description \& Goal}
+
+Policy-Testing Simulation for career trajectory analysis is a computational methodology that creates virtual representations of career systems to evaluate the impacts of different policy interventions on individual and aggregate career outcomes[6][19]. The primary goal is to provide policymakers with a testing ground to experiment with alternative policies, promotion criteria, training programs, and organizational structures before implementing them in real-world settings[14]. This approach allows for systematic exploration of how changes in personnel policies might affect career progression patterns, diversity outcomes, retention rates, and overall organizational effectiveness[3][17].
+
+The methodology serves multiple purposes including scenario testing to explore multi-stage reforms, risk quantification through Monte Carlo simulations, and stakeholder engagement through visualization of complex policy trade-offs[14]. By simulating thousands of individual career paths under different policy conditions, this approach can identify unintended consequences, optimal intervention points, and the most effective combinations of policy tools[6][8].
+
+\subsubsection{Critical Variables}
+
+Policy-Testing Simulation models for career trajectories typically incorporate several categories of variables as inputs. Individual-level characteristics include demographic variables such as age, gender, race, marital status, and educational background, as these factors have been shown to correlate with career survival and progression patterns[1][3]. Cognitive and non-cognitive attributes form another critical category, including measures of complex problem solving, creative thinking, responsibility, hardiness components (control, commitment, challenge), and motivation levels[1].
+
+Career-specific variables encompass performance metrics such as Officer Evaluation Reports, assessment scores from specialized programs, and key developmental assignment completions[1]. Organizational variables include promotion rates, minimum time requirements at each career stage, retirement policies, and structural characteristics of the career hierarchy[3][8]. Policy intervention variables represent the manipulable elements that researchers wish to test, such as changes in promotion criteria, training requirements, mentorship programs, or diversity initiatives[17][19].
+
+Environmental factors such as economic conditions, organizational growth or contraction, and external pressures also serve as important contextual variables that can influence career progression patterns[7][15]. The Armed Services Vocational Aptitude Battery (ASVAB) scores and other standardized assessments provide additional cognitive ability measures that have proven useful in predicting job performance[1].
+
+\subsubsection{Key Overviews}
+
+\paragraph{Agent-Based Models of Gender Inequalities in Career Progression}
+
+Bullinaria's work presents an agent-based simulation framework specifically designed to investigate gender inequalities in professional hierarchies such as universities and businesses[3]. The model creates populations of artificial agents who compete for promotion in their chosen professions, leading to emergent distributions that can be matched to real-life scenarios. The framework allows researchers to explore the influence of socially or genetically acquired career preferences and provides a principled approach for understanding how imbalances emerge and evolve over time. The model demonstrates how seemingly fair promotion processes can still lead to unequal outcomes due to subtle differences in preferences, abilities, or environmental factors. This work is particularly valuable for understanding how discrimination can manifest in career progression systems and for testing interventions designed to promote equality.
+
+\paragraph{Computational Modelling of Public Policy}
+
+Gilbert and colleagues provide comprehensive guidance on using computational models to assist in developing, implementing, and evaluating public policy[6]. Their work emphasizes that policy models can serve as virtual laboratories where policymakers can experiment with different approaches before real-world implementation. The authors argue that these models offer significant advantages over randomized control trials and policy pilots, particularly in terms of cost-effectiveness and the ability to test extreme scenarios safely. Their experience suggests that the main benefit of designing and using models often comes from the understanding gained during the modeling process itself, rather than just the numerical outputs. The work provides practical lessons about appropriate levels of abstraction, stakeholder engagement, and the importance of collaborative modeling approaches that involve end-users from the beginning of the process.
+
+\paragraph{Hybrid Discrete Event-Agent Based Model of Career Development}
+
+This research presents a novel combined platform that merges Discrete Event and Agent-Based modeling to simulate career development processes[8]. The model focuses on individual employees as agents, reproducing the career history of each agent while accounting for individual characteristics, organizational structure, personnel policies, and random factors inherent in career development. The approach conceptualizes employee activity as a generalizing numerical characteristic that represents an employee's power in the career process, with increased activity serving as the primary driver for career advancement. The model consists of two main sub-models: agent flow simulation and agent interaction modeling, providing a comprehensive framework for understanding how individual characteristics interact with organizational policies to shape career outcomes.
+
+\paragraph{SimPaths Microsimulation Model}
+
+Bronka and colleagues developed SimPaths as an open-source microsimulation framework specifically designed for life course analysis, including detailed career path modeling[15]. The framework projects individual life histories through time, building comprehensive pictures of career paths, family relationships, health status, and financial circumstances. The model is built upon standardized assumptions and data sources, facilitating adaptation to different countries, with existing versions for the UK and Italy and development underway for other European nations. The modular nature of SimPaths enables analysis of alternative tax and benefit systems, sensitivity testing of parameter estimates, and exploration of different approaches for projecting labor market decisions. Validation efforts demonstrate that projections closely reflect observed data throughout validation windows, providing confidence in the model's ability to simulate realistic career trajectories.
+
+\subsubsection{Mathematical Approach}
+
+The mathematical foundation of Policy-Testing Simulation for career trajectories typically employs discrete-time Markov chains or continuous-time stochastic processes to model individual career progression[3][8]. For agent $$i$$ at time $$t$$, the probability of promotion from career stage $$s$$ to stage $$s+1$$ can be expressed as:
+
+$$P_{i,t}(s \rightarrow s+1) = f(A_{i,t}, X_{i,t}, P_t, \epsilon_{i,t})$$
+
+where $$A_{i,t}$$ represents the agent's ability or activity level, $$X_{i,t}$$ is a vector of individual characteristics, $$P_t$$ represents policy parameters at time $$t$$, and $$\epsilon_{i,t}$$ captures random factors[8].
+
+The promotion process often incorporates ranking mechanisms where the top $$xN$$ individuals from $$N$$ eligible candidates are promoted, with $$x$$ representing the promotion fraction[3]. The ranking can be based on a composite score:
+
+$$S_{i,t} = \alpha A_{i,t} + \beta \sum_{j} w_j X_{i,j,t} + \gamma E_{i,t} + \delta_{i,t}$$
+
+where $$E_{i,t}$$ represents experience accumulated over time, and $$\delta_{i,t}$$ allows for discrimination or bias effects[3].
+
+For microsimulation approaches, individual transitions follow probabilistic rules based on estimated parameters from empirical data[7][15]. The transition probability for individual $$i$$ moving from state $$j$$ to state $$k$$ at time $$t$$ is:
+
+$$\pi_{i,jk}(t) = \text{logit}^{-1}(\mathbf{x}_{i,t}'\boldsymbol{\beta}_{jk})$$
+
+where $$\mathbf{x}_{i,t}$$ is a vector of individual and contextual variables, and $$\boldsymbol{\beta}_{jk}$$ represents estimated parameters for the transition from state $$j$$ to state $$k$$[15].
+
+The simulation typically runs for multiple periods, with individuals aging and accumulating experience according to: $$E_{i,t+1} = E_{i,t} + 1$$ if the individual remains in the same position, or $$E_{i,t+1} = 0$$ if promoted to a new level[3]. Policy interventions are implemented by modifying the parameters $$P_t$$ or the functional form $$f(\cdot)$$ at specified time points, allowing researchers to observe the resulting changes in career trajectory distributions.
+
+\subsubsection{Example Applications}
+
+\paragraph{Gender Inequality Analysis in Professional Hierarchies}
+
+Bullinaria's application of agent-based modeling to gender inequalities demonstrates how Policy-Testing Simulation can reveal subtle mechanisms that perpetuate career disparities[3]. The study simulated career progression in professional hierarchies with 7 career stages and 50-year career spans, testing scenarios with different promotion fractions, waiting periods for eligibility, and individual preferences. The model revealed how seemingly gender-neutral promotion policies could still produce unequal outcomes due to differences in career preferences, willingness to persist through waiting periods, and ability distributions. By systematically varying these parameters, the research demonstrated how small initial differences can compound over time to create significant inequalities at senior levels. The simulation enabled testing of various intervention strategies, such as modified promotion criteria or targeted support programs, providing insights into which approaches might be most effective for promoting gender equality in career advancement.
+
+\paragraph{Pension System Career Path Analysis}
+
+The Trajectoire microsimulation model developed by DREES represents a sophisticated application of Policy-Testing Simulation to analyze how pension reforms affect career trajectories and retirement outcomes[7]. The model simulates the complete career paths of 350,000 individuals based on administrative data from French pension funds, projecting forward to evaluate the long-term impacts of policy changes. The simulation incorporates detailed modules for labor market transitions, wage evolution, and pension rights acquisition across multiple pension schemes. Researchers used this framework to analyze the 2014 pension reform, demonstrating how changes in retirement age requirements, contribution periods, and benefit calculations would affect different demographic groups and career types. The model's ability to track individual-level impacts while aggregating to population-level estimates makes it particularly valuable for policy evaluation, allowing policymakers to understand both the distributional effects and overall fiscal implications of proposed reforms.
+
+\paragraph{Military Career Development Modeling}
+
+The hybrid discrete event-agent based model described in the search results provides an example of Policy-Testing Simulation applied specifically to military career development[8]. This application models individual officers as agents with specific activity levels and characteristics, simulating their progression through military ranks under different personnel policies. The model incorporates the unique aspects of military careers, including mandatory service periods, up-or-out promotion systems, and specialized training requirements. By varying parameters such as promotion rates, performance evaluation criteria, and retention incentives, researchers can test how different personnel policies might affect officer retention, promotion patterns, and overall force readiness. The simulation enables exploration of scenarios such as changing promotion timelines, modifying evaluation systems, or implementing diversity initiatives, providing military leadership with data-driven insights for personnel policy decisions.
+
+\paragraph{Multi-Country Life Course Analysis}
+
+The SimPaths framework demonstrates the application of Policy-Testing Simulation to comprehensive life course analysis across different national contexts[15]. The model simulates detailed career trajectories alongside family formation, health outcomes, and financial circumstances, allowing researchers to test how different policy environments affect life course outcomes. Applications include analysis of tax and benefit system reforms, evaluation of education policies, and assessment of healthcare interventions on career development. The framework's modular design enables researchers to isolate specific policy effects while maintaining the complexity of real-world interactions between different life domains. Cross-national comparisons using standardized model structures but country-specific parameters provide insights into how institutional differences affect career trajectory patterns, informing policy transfer discussions and comparative policy analysis.
+
+\subsubsection{Critiques}
+
+Policy-Testing Simulation approaches face several significant limitations that researchers must carefully consider. One major critique concerns the challenge of model validation and verification, as the complex interactions simulated in these models make it difficult to determine whether observed outcomes result from realistic mechanisms or artifacts of model assumptions[6][19]. The models often require numerous parameters that may not be well-estimated from available data, leading to uncertainty about the reliability of simulation results[14].
+
+Computational complexity presents another significant limitation, as realistic simulations of career trajectories require modeling numerous agents over extended time periods with detailed individual characteristics and policy interactions[3][8]. This complexity can make models difficult to understand, validate, and communicate to policymakers who need to make decisions based on the results[6]. Additionally, the models may suffer from the "black box" problem, where complex interactions make it challenging to understand why particular outcomes emerge[19].
+
+Data requirements pose substantial practical challenges, as these models typically require comprehensive longitudinal data on individual characteristics, career outcomes, and policy environments that may not be readily available[7][15]. The models also face criticism for their potential to oversimplify complex social and organizational dynamics, potentially missing important qualitative factors that influence career progression[17]. Finally, there are concerns about the models' ability to capture emergent phenomena and unintended consequences, as the predetermined rules and relationships built into the simulation may not fully represent the adaptive and creative responses that real individuals and organizations exhibit when facing policy changes[14][19].
+
+\subsubsection{Software}
+
+\paragraph{R Packages for Microsimulation}
+
+The microsimulation package in R provides discrete event simulation capabilities using both R and C++, specifically designed for cost-effectiveness analysis and policy modeling[9]. This package adapts code from the SSIM library to enable event-oriented simulation with a SummaryReport class for reporting events and costs by age and other covariates. The package includes priority queue implementations and provides tools specifically designed for cost-effectiveness analysis, making it particularly suitable for policy evaluation contexts. The combination of R's statistical capabilities with C++ performance optimization makes this package well-suited for large-scale career trajectory simulations that require both detailed statistical modeling and computational efficiency.
+
+\paragraph{MicSim Package for Continuous-Time Microsimulation}
+
+MicSim is a specialized R package that enables continuous-time microsimulation for demographic, social science, and epidemiological applications[16]. The package allows researchers to specify individual life courses using continuous-time multi-state models, making it particularly appropriate for career trajectory analysis where transitions between career states can occur at any time rather than at discrete intervals. MicSim supports complex modeling scenarios including competing risks, time-varying covariates, and multiple simultaneous processes, providing the flexibility needed to capture the complexity of real career development patterns. The package's focus on continuous-time modeling makes it especially valuable for applications where the timing of career transitions is critical to understanding policy impacts.
+
+\paragraph{SimInf Package for Epidemiological Modeling}
+
+The SimInf package, while primarily designed for epidemiological modeling, provides a flexible framework for data-driven stochastic simulations that can be adapted for career trajectory analysis[11]. The package integrates infection dynamics as continuous-time Markov chains using the Gillespie stochastic simulation algorithm and incorporates scheduled events at predefined time points. This architecture makes it suitable for modeling career progression where individuals move between career states according to stochastic processes influenced by both individual characteristics and external events. The package's emphasis on high performance through C code optimization and parallel processing capabilities makes it suitable for large-scale policy simulation studies.
+
+\paragraph{Mesa Framework for Agent-Based Modeling}
+
+Mesa is a comprehensive Python framework specifically designed for agent-based modeling applications[10]. The framework provides built-in core components including spatial grids, agent schedulers, and data collection tools, along with browser-based visualization capabilities for model exploration and presentation. Mesa's modular architecture allows researchers to quickly create agent-based models using standardized components while maintaining flexibility for customized implementations. The framework's emphasis on accessibility and its integrated data analysis tools make it particularly suitable for policy-oriented research where model results need to be communicated to diverse stakeholders. Mesa's visualization capabilities are especially valuable for demonstrating career progression patterns and policy impacts to policymakers.
+
+\paragraph{Specialized Policy Simulation Platforms}
+
+Several custom-made software platforms have been developed specifically for policy simulation applications, including the Trajectoire model developed by DREES for pension analysis[7] and the SimPaths framework for life course modeling[15]. These platforms typically integrate microsimulation engines with specialized modules for specific policy domains, providing pre-built functionality for common policy analysis tasks. The advantage of these specialized platforms is their focus on specific policy applications, often including pre-validated models and extensive documentation for particular policy contexts. However, they may be less flexible than general-purpose simulation frameworks and typically require significant expertise to modify or extend for new applications.
+
+\subsubsection{Example Study Design}
+
+\paragraph{Key Variables}
+
+This Policy-Testing Simulation study would incorporate multiple categories of variables derived from the provided indicators document[1]. Individual demographic variables would include age at commission, gender, race, marital status, and number of dependents, as these factors have demonstrated correlation with officer survival curves. Educational variables would encompass commission source (West Point, ROTC, OCS), graduate education completion, skill identifiers, and ASVAB scores as measures of cognitive ability.
+
+Career performance indicators would include Officer Evaluation Report scores, performance in Key Development assignments, completion of broadening assignments, and joint service credit accumulation. Branch-specific variables would capture unique progression patterns for Armor, Logistics, Aviation, and Cyber branches, including specialized training completions and assessment scores such as the Cyber Aptitude and Talent Assessment. Non-cognitive attributes would incorporate hardiness measures (control, commitment, challenge), motivation levels, complex problem solving capability, creative thinking, and responsibility indicators derived from validated assessment instruments.
+
+Policy intervention variables would represent the manipulable elements for testing different career management strategies, including promotion board criteria weights, mandatory training requirements, mentorship program availability, and diversity initiative implementations. Environmental variables would account for force structure changes, deployment requirements, and external factors affecting military career progression patterns.
+
+\paragraph{Sample \& Data Collection}
+
+The study would utilize a representative sample of 10,000 U.S. Army officers stratified across the four branch divisions (Armor, Logistics, Aviation, Cyber) to ensure adequate representation for meaningful statistical analysis within each specialty area[3]. The sample would be further stratified by entry cohort years to capture temporal variations in career progression patterns and policy environments. Historical administrative data would be extracted from personnel databases covering a 20-year period to establish baseline progression patterns and estimate key model parameters.
+
+Data collection would integrate multiple sources including personnel records for demographic and performance information, assessment databases for cognitive and non-cognitive measures, and training records for education and development indicators. Survey data would be collected from a subset of active and retired officers to validate non-cognitive attribute measures and capture qualitative factors not readily available in administrative records. The study would also incorporate policy documentation and regulatory changes over the observation period to accurately model the policy environment context.
+
+Longitudinal tracking would follow officers from commissioning through retirement or separation, creating complete career trajectory records for model calibration and validation. Special attention would be paid to ensuring data quality and completeness, with imputation procedures developed for missing data elements to maintain sample integrity across all analytical variables.
+
+\paragraph{Analysis Approach}
+
+The analysis would employ a hybrid discrete event-agent based modeling framework where individual officers serve as agents progressing through career stages according to stochastic transition rules[8]. The simulation would model career progression as a multi-state process with states representing rank levels, assignment types, and career milestones, with transition probabilities estimated from historical data using logistic regression models incorporating the full range of individual and contextual variables.
+
+Policy interventions would be implemented by systematically modifying promotion criteria weights, training requirements, and evaluation procedures within the simulation framework. Each policy scenario would be run for 1,000 iterations with different random seeds to capture uncertainty and provide confidence intervals for estimated effects. The baseline model would be calibrated to reproduce observed career progression patterns for the historical period, with validation testing conducted using hold-out samples and cross-validation procedures.
+
+Sensitivity analysis would examine how results vary with key parameter assumptions, particularly those related to non-cognitive attributes and their relationship to career success. Scenario testing would explore the impacts of alternative policy configurations, including changes to promotion timelines, modified evaluation criteria, enhanced diversity initiatives, and different training investment strategies.
+
+\paragraph{Potential Findings}
+
+The simulation analysis could reveal how different policy interventions affect career progression equity across demographic groups, potentially identifying policies that inadvertently disadvantage certain populations despite appearing gender and race-neutral[3]. The study might demonstrate how modifications to promotion board criteria could improve the advancement prospects of underrepresented groups while maintaining overall force quality and readiness standards.
+
+Branch-specific analyses could identify optimal career development pathways for each specialty area, revealing how the unique requirements and progression patterns in Armor, Logistics, Aviation, and Cyber branches respond differently to various policy interventions. The research might uncover the relative importance of cognitive versus non-cognitive attributes in predicting career success, informing recruitment and development strategies.
+
+The simulation could also quantify the long-term effects of early career interventions, such as enhanced mentorship programs or modified initial assignment policies, demonstrating how small changes in junior officer experiences compound over time to significantly affect senior leadership demographics. Additionally, the analysis might identify critical career decision points where targeted interventions could have maximum impact on overall career trajectory outcomes.
+
+\paragraph{Potential Implications}
+
+The study findings could inform evidence-based reforms to military personnel policies, providing quantitative justification for changes to promotion systems, training investments, and diversity initiatives. The simulation results might support arguments for modifying evaluation criteria to better recognize diverse forms of military excellence and leadership potential, particularly for emerging domains like cyber warfare.
+
+Policy implications could extend to recruitment strategies, suggesting how changes to officer accession programs might improve long-term career outcomes and force diversity. The research might also inform resource allocation decisions by identifying which career development investments provide the greatest return in terms of officer retention and advancement equity.
+
+The methodology itself could be adapted for use by other military services and government agencies facing similar career management challenges, providing a replicable framework for evidence-based personnel policy development. The study might also contribute to broader organizational behavior literature by demonstrating how simulation modeling can be used to test complex policy interventions in hierarchical organizations.
+
+\begin{thebibliography}{99}
+
+\bibitem{potential-indicators}
+U.S. Army Branch Indicators. Potential Indicators. PDF document. Retrieved from Perplexity search results.
+
+\bibitem{cornell-job-sim}
+Cornell University Graduate Careers. (2017). Job Simulations. Available at: https://gradcareers.cornell.edu/test-drive-a-career/job-simulations/
+
+\bibitem{bullinaria2018}
+Bullinaria, J. A. (2018). Agent-Based Models of Gender Inequalities in Career Progression. \textit{Journal of Artificial Societies and Social Simulation}, 21(3), 7.
+
+\bibitem{systems-engineer}
+4DayWeek.io. (2024). Systems Engineer Career Path. Available at: https://4dayweek.io/career-path/systems-engineer
+
+\bibitem{policy-simulations}
+Policy Simulations. (2022). Policy simulations: Home. Available at: https://policy.socialsimulations.org
+
+\bibitem{gilbert2018}
+Gilbert, N., Ahrweiler, P., Barbrook-Johnson, P., Narasimhan, K. P., \& Wilkinson, H. (2018). Computational Modelling of Public Policy: Reflections on Practice. \textit{Journal of Artificial Societies and Social Simulation}, 21(1), 14.
+
+\bibitem{duc2015}
+Duc, C., Housset, F., Lequien, L., \& Plouhinec, C. (2015). The Trajectoire microsimulation model: an estimation tool for pension reforms across all schemes. \textit{Économie et Statistique}, 481-482.
+
+\bibitem{career-model}
+Author. (2020). Hybrid Discrete Event-Agent Based Model of Career Development. Agent Activity – Survey and Agent Flow Simulation. \textit{SSRN Electronic Journal}.
+
+\bibitem{microsimulation-r}
+CRAN. (2024). Package microsimulation. Available at: https://cran.r-project.org/package=microsimulation
+
+\bibitem{mesa}
+Mesa Development Team. (2025). Mesa: Agent-based modeling in Python. Available at: https://mesa.readthedocs.io
+
+\bibitem{siminf}
+Widgren, S., Bauer, P., Eriksson, R., \& Engblom, S. (2019). SimInf: An R Package for Data-Driven Stochastic Disease Spread Simulations. \textit{Journal of Statistical Software}, 91(12), 1-42.
+
+\bibitem{jalali2021}
+Jalali, M. S., DiGennaro, C., Guitar, A., Lew, K., \& Rahmandad, H. (2021). Evolution and Reproducibility of Simulation Modeling in Epidemiology and Health Policy Over Half a Century.
+
+\bibitem{intersect}
+InterSECT. (2025). InterSECT Job Simulations. Available at: https://intersectjobsims.com
+
+\bibitem{number-analytics1}
+Lee, S. (2025). The Ultimate Guide to Public Policy Simulation Models. \textit{Number Analytics Blog}.
+
+\bibitem{bronka2023}
+Bronka, P., van de Ven, J., Kopasker, D., Katikireddi, S. V., \& Richiardi, M. (2023). SimPaths: an open-source microsimulation model for life course analysis. \textit{CeMPA Working Paper Series}, CEMPA6/23.
+
+\bibitem{micsim}
+CRAN. (2024). Package MicSim. Available at: https://cran.r-project.org/package=MicSim
+
+\bibitem{wilensky2023}
+Wilensky, U., \& Rand, W. (2023). A Methodology to Develop Agent-Based Models for Policy Support Via Qualitative Inquiry. \textit{Journal of Artificial Societies and Social Simulation}, 26(1), 10.
+
+\bibitem{number-analytics2}
+Lee, S. (2025). Policy Simulation Guide for Public Policy Analysis. \textit{Number Analytics Blog}.
+
+\bibitem{furtado2023}
+Furtado, B. A. (2023). Simulation Modeling as a Policy Tool. In M. Howlett (Ed.), \textit{Handbook of Policy Tools}. Routledge.
+
+\bibitem{mspb-job-sim}
+U.S. Merit Systems Protection Board. Job Simulations: Trying out for a Federal Job. PDF report.
+
+\bibitem{wsc2024}
+Biller, B., Berg, T., Alfaro Rivas, N., Chen, T.-S., \& Dronzek, R. (2024). Panel: Learning from Career Paths of Simulation Practitioners. In \textit{Proceedings of the 2024 Winter Simulation Conference}.
+
+\end{thebibliography}
+
+\end{document}

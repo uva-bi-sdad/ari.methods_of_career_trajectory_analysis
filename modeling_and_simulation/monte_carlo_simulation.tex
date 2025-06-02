@@ -1,0 +1,209 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+Monte Carlo Simulation Analysis represents a powerful computational methodology for examining career trajectories through probabilistic modeling and repeated random sampling. This approach enables researchers to capture the inherent uncertainty and stochastic nature of career progression by simulating thousands or millions of potential career paths based on specified probability distributions for key career-related variables[1][7]. The method proves particularly valuable for career trajectory analysis because it can incorporate multiple sources of uncertainty simultaneously, such as promotion probabilities, job market conditions, individual performance variations, and external economic factors, thereby providing comprehensive insights into the range of possible career outcomes and their associated probabilities[4][8].
+
+\subsubsection{Approach Description \& Goal}
+
+Monte Carlo simulation is a computerized mathematical technique that generates random sample data based on known probability distributions to conduct numerical experiments[2]. Originally developed by mathematicians Stan Ulam and Nicholas Metropolis during the Manhattan Project, the method was named after the Monte Carlo casino in Monaco due to its reliance on random number generation, similar to casino games[7]. The fundamental principle underlying Monte Carlo simulation is the Law of Large Numbers, which ensures that as the number of experimental repetitions increases, the relative frequency of occurrence converges to the theoretical or expected outcome[2].
+
+In the context of career trajectory analysis, Monte Carlo simulation serves multiple critical purposes. First, it enables researchers to model the probability of different career outcomes when traditional analytical methods prove insufficient due to the complex interplay of random variables affecting career progression[1]. Second, it facilitates the assessment of long-term career planning strategies by simulating various career paths and their associated rewards over extended time horizons[8]. Third, the approach allows for comprehensive risk assessment in career decision-making by quantifying the uncertainty surrounding different career choices and their potential consequences[4]. Finally, Monte Carlo simulation provides a framework for testing the robustness of career theories and models under different assumptions and scenarios.
+
+\subsubsection{Critical Variables}
+
+Career trajectory Monte Carlo simulations typically incorporate several categories of variables that capture different aspects of professional development and external influences. Individual-level variables form the foundation of most models and include demographic characteristics such as age, gender, educational background, and initial career entry point[9]. Performance-related variables encompass job performance ratings, skill development trajectories, leadership potential assessments, and productivity measures that influence promotion probabilities and career advancement opportunities[8].
+
+Organizational variables represent another crucial category, including company characteristics such as size, industry sector, growth rate, promotion policies, and organizational culture factors that affect career mobility patterns[8]. External environment variables capture broader economic and labor market conditions, including unemployment rates, industry demand fluctuations, technological changes, and regulatory shifts that impact career opportunities and transitions[4]. Network and social capital variables account for professional relationships, mentorship availability, and social connections that facilitate or constrain career movements.
+
+Temporal variables incorporate the dynamic nature of careers, including time in position, career stage effects, and age-related factors that influence career transition probabilities[9]. Stochastic elements such as random events, unexpected opportunities, economic shocks, and personal life circumstances are also integrated to reflect the inherent unpredictability of career trajectories. Finally, preference and utility variables capture individual career goals, work-life balance priorities, geographic constraints, and risk tolerance levels that guide career decision-making processes.
+
+\subsubsection{Key Overviews}
+
+\subsubsubsection{Simulation and the Monte Carlo Method by Rubinstein and Kroese}
+
+The comprehensive textbook "Simulation and the Monte Carlo Method" by Reuven Rubinstein and Dirk Kroese provides an authoritative treatment of Monte Carlo methods across various applications[5][13]. The book distinguishes between static and dynamic models, with particular attention to finite-horizon and steady-state simulations relevant to career analysis. The authors present variance reduction techniques including antithetic and common random numbers, control variables, conditional Monte Carlo, stratified sampling, and importance sampling, which are crucial for achieving reliable results in career trajectory simulations. The text emphasizes the importance of sequential importance resampling algorithms and includes discussion of novel multi-level Monte Carlo methods that can enhance computational efficiency in complex career modeling scenarios. The book's treatment of Gaussian processes, Brownian motion, and diffusion processes provides mathematical foundations applicable to modeling continuous career progression variables such as salary growth and skill development trajectories.
+
+\subsubsubsection{A First Course in Monte Carlo by Fishman}
+
+George Fishman's "A First Course in Monte Carlo" offers a practical introduction to Monte Carlo methods with emphasis on both independent Monte Carlo and Markov Chain Monte Carlo approaches[6]. The book's strength lies in its comprehensive coverage of algorithmic development, presenting general algorithms before specific applications, which proves valuable for career trajectory modeling where researchers must adapt general principles to specific organizational contexts. Fishman's treatment of variance reduction techniques, including antithetic control variates and Rao-Blackwellization, provides essential tools for improving the efficiency of career simulations. The book's discussion of Markov chain background theory and convergence concepts (geometric, uniform, and polynomial convergence) is particularly relevant for modeling career transitions where current career state influences future opportunities. The pragmatic approach to combining multiple simulation runs and sample-path analysis offers practical guidance for researchers conducting longitudinal career studies.
+
+\subsubsubsection{Statistical Thinking for the 21st Century}
+
+The academic resource "Statistical Thinking for the 21st Century" provides an accessible introduction to Monte Carlo simulation with clear pedagogical examples[7]. The text outlines four fundamental steps for performing Monte Carlo simulation: defining a domain of possible values, generating random numbers from probability distributions, performing computations using random numbers, and combining results across repetitions. This systematic approach proves particularly valuable for career trajectory analysis where researchers must carefully specify the range of possible career outcomes and their associated probabilities. The resource emphasizes the practical advantages of Monte Carlo simulation over complex mathematical derivations, making it accessible to career researchers who may not have extensive mathematical backgrounds. The inclusion of practical examples demonstrates how Monte Carlo methods can address questions that would be difficult to answer through traditional analytical approaches, illustrating the method's utility for complex career trajectory problems.
+
+\subsubsubsection{Monte Carlo Methods in Academic Literature}
+
+Academic literature reviews consistently highlight Monte Carlo methods as revolutionary tools in scientific computing, with applications spanning from resampling statistical methods to complex system analysis[6]. Modern Monte Carlo algorithms have made Markov Chain Monte Carlo (MCMC) methods commonplace in Bayesian analysis, bootstrapping, and permutation analysis, all of which have direct applications in career trajectory research. The literature emphasizes that Monte Carlo experiments have become the preferred tool for engineers, operations researchers, and social scientists studying complex systems where traditional analytical methods prove insufficient. Career trajectory research benefits particularly from the method's ability to evaluate finite sample properties of statistical methods and to generate probability distributions for risk management, both crucial aspects of understanding career progression patterns and outcomes.
+
+\subsubsection{Mathematical Approach}
+
+The mathematical foundation of Monte Carlo simulation rests on the principle of using repeated random sampling to approximate complex probabilistic systems. The fundamental equation governing Monte Carlo estimation is:
+
+$$\hat{\theta}_n = \frac{1}{n}\sum_{i=1}^{n} g(X_i)$$
+
+where $\hat{\theta}_n$ represents the Monte Carlo estimate, $n$ is the number of simulation runs, $g(X_i)$ is the function of interest evaluated at the $i$-th random sample $X_i$, and the samples $X_i$ are drawn from a specified probability distribution[2][4].
+
+For career trajectory analysis, the career path quality function can be formulated as:
+
+$$P^* = \arg\max_{P_i \in \mathcal{P}} \sum_{C_j \in P_i} S_{C_j}$$
+
+where $P^*$ represents the optimal career path, $\mathcal{P}$ is the set of all possible career paths, $P_i$ is the $i$-th career path, and $S_{C_j}$ is the reward for staying at company $C_j$[8]. The reward function incorporates multiple factors:
+
+$$S_{C_i} = R(\theta_l f_l, C_{i-1}, J_{i-1}, C_i, J_i, D_i)$$
+
+where $f_l$ denotes basic company features, $\theta_l$ represents personal weights for rating criteria, and $C_{i-1}, J_{i-1}$ represent previous employer and job position respectively[8].
+
+The convergence of Monte Carlo estimates relies on the Strong Law of Large Numbers, which ensures that:
+
+$$\lim_{n \to \infty} \hat{\theta}_n = \mathbb{E}[g(X)] = \theta$$
+
+with probability one, provided that $\mathbb{E}[|g(X)|] < \infty$[2]. The Central Limit Theorem further provides that the estimation error follows a normal distribution:
+
+$$\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{d} \mathcal{N}(0, \sigma^2)$$
+
+where $\sigma^2 = \text{Var}[g(X)]$, enabling confidence interval construction for career trajectory predictions[7].
+
+For discrete career variables, the simulation process involves establishing probability distributions, building cumulative distribution functions, and using random number intervals. If $F(x)$ represents the cumulative distribution function, then random numbers $U$ uniformly distributed on $[1]$ are transformed to career variables through the inverse transform method: $X = F^{-1}(U)$[3]. This approach ensures that the generated career variables follow the specified probability distribution.
+
+\subsubsection{Example Applications}
+
+\subsubsubsection{Intelligent Career Planning via Stochastic Subsampling Reinforcement Learning}
+
+The research by Guo et al. presents a groundbreaking application of Monte Carlo methods to career planning through their Stochastic Subsampling Reinforcement Learning (SSRL) framework[8][14]. The study formulates career planning as a sequential decision-making problem where individuals must select optimal career paths to maximize long-term rewards. The authors develop a comprehensive career path rating mechanism that incorporates company features, position matching, periodic suffering from job changes, and staying probabilities. Their Monte Carlo simulation framework evaluates thousands of potential career trajectories, considering factors such as company reputation, salary progression, and career mobility patterns. The results demonstrate that their SSRL-based career planning system achieves an average career path score of 64.78, representing a 54.3% improvement over real career trajectories with an average score of 41.96. The study's case studies reveal how Monte Carlo simulation can guide individuals toward gradually improving career paths while mitigating negative impacts from suboptimal early career decisions. This research establishes career planning as a viable application domain for Monte Carlo methods and demonstrates the practical value of probabilistic modeling in career decision-making.
+
+\subsubsection{Persistence and Uncertainty in Academic Career Trajectories}
+
+The PNAS study by Petersen et al. employs Monte Carlo simulation to model academic career trajectories, focusing on the relationship between persistence and uncertainty in scientific careers[9]. The authors model career trajectories as sequences of scientific outputs arriving at variable rates, incorporating reputation dynamics and cumulative advantage effects. Their Monte Carlo framework simulates career longevity distributions under different competitive conditions, revealing how early career fluctuations can lead to dramatically different long-term outcomes. The simulation results demonstrate that under competitive conditions ($c \geq 1$), the career longevity distribution becomes heavily right-skewed, with most careers terminating early while a few "superstars" survive for extended periods. The study's Monte Carlo analysis quantifies how stochastic fluctuations during early career stages can trigger cumulative advantage processes, leading to extreme inequality in career outcomes despite identical initial conditions. This research illustrates how Monte Carlo simulation can reveal emergent properties of career systems that would be difficult to detect through traditional analytical approaches, particularly the role of random events in determining long-term career success.
+
+\subsubsection{Career Path Modeling Using Markov Chain Methods}
+
+The practical application described in the Towards Data Science article demonstrates how Monte Carlo simulation can be combined with Markov Chain models to analyze career transitions[20]. The study models career progression as a stochastic process where future career states depend on current positions, with transition probabilities estimated from historical career data. The Monte Carlo component involves running multiple simulations to explore different career path scenarios and their associated probabilities. The approach incorporates both deterministic factors (skills, education, experience) and stochastic elements (market conditions, opportunity availability, random events) to generate realistic career trajectory distributions. The simulation results provide insights into optimal career strategies, expected career outcomes, and risk assessment for different career decisions. This application demonstrates how Monte Carlo methods can be made accessible to practitioners while maintaining methodological rigor, showing the practical value of probabilistic career modeling for individual career planning and organizational workforce development.
+
+\subsubsection{Multi-Model Monte Carlo for Trajectory Simulation}
+
+The NASA research on multi-model Monte Carlo estimators for trajectory simulation, while focused on aerospace applications, provides methodological insights applicable to career trajectory analysis[18]. The study demonstrates how Monte Carlo simulation can handle multiple fidelity levels in modeling, using high-fidelity models for accuracy and low-fidelity models for computational efficiency. The research shows that multi-model approaches can deliver up to two orders of magnitude improvement in accuracy while maintaining computational feasibility. For career trajectory analysis, this methodology suggests using detailed individual-level models for high-fidelity simulation while employing simplified aggregate models for large-scale scenario analysis. The correlation between different model fidelity levels determines the accuracy improvement, with higher correlations yielding substantial benefits. This approach could be particularly valuable for organizational workforce planning where both detailed individual career simulations and broad population-level projections are needed simultaneously.
+
+\subsubsection{Critiques}
+
+Monte Carlo simulation, while powerful, faces several limitations when applied to career trajectory analysis. The primary computational challenge involves the need for extensive simulation runs to achieve reliable results, particularly when modeling rare career events or extreme outcomes[1][6]. Career trajectory simulations often require hundreds of thousands or millions of iterations to capture low-probability but high-impact career transitions, leading to substantial computational costs and extended execution times. This computational intensity becomes particularly problematic when conducting sensitivity analyses or optimization studies that require multiple simulation campaigns.
+
+The accuracy of Monte Carlo simulations depends critically on the quality of input probability distributions and model assumptions[2][4]. Career trajectory modeling faces inherent challenges in specifying realistic probability distributions for complex career variables, as historical data may not adequately represent future career landscapes due to technological changes, evolving organizational structures, and shifting labor market dynamics. The assumption of perfectly efficient markets, commonly made in Monte Carlo financial models, may not hold for career systems where information asymmetries, network effects, and institutional barriers significantly influence career outcomes[1].
+
+Model validation presents another significant challenge, as career trajectories unfold over decades, making it difficult to validate simulation results against observed outcomes within reasonable research timeframes[9]. The long-term nature of careers also means that the underlying processes governing career progression may change during the simulation period, potentially invalidating model assumptions. Additionally, Monte Carlo methods may struggle to capture emergent properties of career systems, such as the formation of professional networks or the evolution of organizational cultures, which can significantly influence individual career trajectories but are difficult to model probabilistically[8].
+
+\subsubsection{Software}
+
+\subsubsubsection{MonteCarlo R Package}
+
+The MonteCarlo package for R provides comprehensive tools for conducting simulation studies with particular emphasis on ease of use and result presentation[10]. The package centers around two main functions: \texttt{MonteCarlo()} which runs simulation studies for user-defined parameter grids and handles parallelization across multiple CPUs, and \texttt{MakeTable()} which creates LaTeX tables from simulation outputs with customizable formatting. For career trajectory analysis, researchers define a single function that encompasses data generation, method application, and result evaluation for one simulation iteration, and the package handles all looping and parallelization automatically. The package's strength lies in its intuitive design that allows users to formulate experiments as single-draw scenarios while the software manages the complexity of multiple iterations and parameter combinations. The automatic LaTeX table generation feature proves particularly valuable for academic research, enabling researchers to produce publication-ready results directly from simulation outputs. The package supports complex parameter grids and provides flexibility in result organization, making it suitable for comprehensive career trajectory studies with multiple variables and scenarios.
+
+\subsubsubsection{tidyMC R Package}
+
+The tidyMC package represents a modern approach to Monte Carlo simulation in R, emphasizing tidy data principles and comprehensive workflow support[15]. The package provides functions for the complete simulation lifecycle: \texttt{future\_mc()} for running simulations with parallel processing capabilities, \texttt{summary.mc()} for statistical analysis of results, and plotting functions for visualization. The package integrates with the futureverse ecosystem, enabling simulations to run across different computing environments from laptops to high-performance clusters. For career trajectory research, tidyMC offers particular advantages in handling complex experimental designs with multiple parameter combinations and extensive result analysis capabilities. The package supports partial result monitoring during long-running simulations, which proves crucial for career studies that may require extensive computational time. The integration with modern R data science workflows, including compatibility with ggplot2 for visualization and markdown for reporting, makes tidyMC particularly suitable for contemporary career research that requires both statistical rigor and effective communication of results.
+
+\subsubsubsection{montetools R Package}
+
+The montetools package addresses specific challenges associated with long-running Monte Carlo simulations, making it particularly suitable for comprehensive career trajectory studies[17]. The package provides robust features for parallel execution across multiple platforms (Windows, macOS, Linux) and computing environments (local machines, cloud, clusters). Key capabilities include progress monitoring with customizable progress bars and time-remaining estimates, which prove essential for career simulations that may run for hours or days. The package ensures numerical reproducibility regardless of execution mode (parallel or sequential) and provides tools for verifying result consistency after code modifications or package updates. Error handling features allow simulations to continue despite individual iteration failures, logging errors while preserving completed results. The package maintains automatic backups of in-progress simulations, protecting against data loss during extended computational runs. For career trajectory research, these features address critical practical challenges in conducting large-scale simulations while maintaining scientific reproducibility and computational efficiency.
+
+\subsubsubsection{monaco Python Library}
+
+The monaco Python library provides an industry-grade Monte Carlo framework designed for analyzing uncertainties and sensitivities in computational models[11]. The library supports comprehensive uncertainty quantification by enabling users to define random input variables from any SciPy distribution, preprocess data for simulation input, execute parallel simulations at scale, and perform statistical postprocessing for meaningful conclusions. For career trajectory analysis, monaco offers particular strengths in handling complex probability distributions and custom sampling methods that can capture realistic career transition behaviors. The library's integration with the broader Python scientific computing ecosystem, including NumPy, SciPy, and matplotlib, provides extensive capabilities for data manipulation and visualization. The package ensures repeatability through careful random seed management, crucial for career research requiring reproducible results. Monaco's template system and extensive documentation make it accessible to career researchers while providing the flexibility needed for sophisticated modeling approaches. The library's ability to handle millions of simulation runs makes it suitable for comprehensive career trajectory studies requiring high statistical precision.
+
+\subsubsection{Example Study Design}
+
+\subsubsubsection{Key Variables}
+
+The Monte Carlo simulation study of U.S. Army officer career trajectories would incorporate multiple variable categories reflecting the complexity of military career progression. Individual-level variables would include demographic characteristics (age, gender, educational background), cognitive abilities (standardized test scores, leadership assessments), and non-cognitive attributes (resilience, adaptability, emotional intelligence). Branch-specific variables would differentiate between Armor, Logistics, Aviation, and Cyber divisions, including technical skill requirements, deployment frequencies, and promotion patterns unique to each branch. Performance variables would encompass annual evaluation scores, command performance ratings, professional military education completion, and peer leadership assessments.
+
+Organizational variables would include assignment locations, unit performance metrics, mentorship availability, and institutional support systems. Career progression variables would track promotion timing, lateral movement opportunities, command positions held, and specialized training completions. External factors would incorporate military budget allocations, force structure changes, technological evolution (particularly relevant for Cyber officers), and geopolitical conditions affecting deployment requirements. Stochastic elements would include random assignment opportunities, unforeseen operational requirements, family circumstances affecting career decisions, and health factors influencing service continuation. The simulation would also incorporate policy variables such as promotion board criteria, retention incentives, and professional development requirements that vary across time and career stages.
+
+\subsubsubsection{Sample \& Data Collection}
+
+The study would utilize a comprehensive dataset spanning 20 years of officer career records, encompassing approximately 50,000 officers across the four branch divisions (Armor: 15,000, Logistics: 20,000, Aviation: 10,000, Cyber: 5,000). Data collection would integrate multiple sources including Officer Record Briefs (ORBs), evaluation reports (OERs), assignment histories, and professional military education records. Cognitive assessment data would be drawn from standardized military entrance examinations, while non-cognitive attributes would be measured through validated psychological assessments administered during officer training programs.
+
+Branch-specific performance indicators would be collected through specialized evaluation systems unique to each division, including technical certifications for Aviation and Cyber officers, logistics efficiency metrics, and combat readiness assessments for Armor officers. Assignment data would include geographic locations, unit types, deployment histories, and command positions with associated performance ratings. Educational achievement data would encompass civilian degrees, military professional education completion, and specialized skill certifications. Retention and separation data would provide outcome measures for career trajectory analysis, including reasons for separation and post-military career transitions. The dataset would be longitudinally structured to capture career progression patterns over time, with appropriate data anonymization to protect individual privacy while preserving analytical value.
+
+\subsubsubsection{Analysis Approach}
+
+The Monte Carlo simulation analysis would employ a multi-stage approach combining discrete event simulation with continuous variable modeling. The simulation framework would model career progression as a Markov process where future career states depend on current positions, accumulated experience, and individual characteristics. Each simulation run would generate a complete career trajectory for a synthetic officer, beginning with initial branch assignment and continuing through potential retirement or separation. The simulation would incorporate approximately 100,000 iterations per scenario to ensure statistical reliability, with sensitivity analyses conducted across key parameter variations.
+
+Career transition probabilities would be estimated from historical data using maximum likelihood methods, with separate models for each branch division and career stage. The simulation would employ importance sampling techniques to ensure adequate representation of rare but significant career events, such as early separation or accelerated promotion. Variance reduction techniques including antithetic variables and control variates would improve computational efficiency while maintaining result accuracy. The analysis would examine both individual career outcomes and aggregate workforce patterns, including promotion timing distributions, retention rates by branch and career stage, and the impact of early career decisions on long-term trajectories. Bayesian updating would incorporate new data as it becomes available, allowing the model to adapt to changing military personnel policies and external conditions.
+
+\subsubsubsection{Potential Findings}
+
+The simulation analysis would likely reveal significant differences in career trajectory patterns across the four branch divisions, with Aviation and Cyber officers potentially showing higher early separation rates due to attractive civilian opportunities, while Armor officers might demonstrate more traditional military career progression patterns. The analysis could identify critical decision points where early career choices disproportionately influence long-term outcomes, such as the timing of professional military education or acceptance of challenging assignments. Non-cognitive attributes might emerge as stronger predictors of long-term career success than traditional cognitive measures, particularly for leadership positions requiring adaptability and resilience.
+
+The simulation could reveal optimal career strategies for different officer types, showing how individuals with specific characteristic profiles can maximize their probability of achieving desired career outcomes. Branch-specific findings might include the identification of high-value assignments that significantly improve promotion prospects, or conversely, assignments that create career risks requiring mitigation strategies. The analysis might demonstrate how external factors such as force structure changes or technological evolution create differential impacts across career stages and branch divisions. Temporal patterns could emerge showing how career progression rates have evolved over time, potentially revealing the effects of policy changes or external military pressures on officer development pathways.
+
+\subsubsubsection{Potential Implications}
+
+The study findings would provide valuable insights for multiple stakeholders in military personnel management. For individual officers, the simulation results could inform career planning decisions by quantifying the long-term consequences of early career choices and identifying optimal strategies for achieving specific career goals. The analysis could reveal how officers with different characteristic profiles should approach career development differently, enabling more personalized career counseling and mentorship programs. For military leadership, the findings could inform recruitment strategies by identifying the characteristics and backgrounds most associated with successful long-term careers in each branch division.
+
+Personnel policy implications could include recommendations for assignment rotation patterns, professional development timing, and retention incentive targeting based on career trajectory modeling. The simulation could identify systemic barriers to career advancement for underrepresented groups, informing diversity and inclusion initiatives with quantitative evidence of career progression disparities. Workforce planning applications could include forecasting future leadership availability, identifying potential skill gaps in emerging areas like cyber warfare, and optimizing training resource allocation across branch divisions. The methodology itself could be adapted for other military services or modified to address specific strategic workforce planning challenges, providing a framework for evidence-based personnel decision-making in complex organizational environments.
+
+\begin{thebibliography}{20}
+
+\bibitem{investopedia2024}
+Investopedia. (2024). \textit{Monte Carlo Simulation: What It Is, How It Works, History, 4 Key Steps}. Retrieved from https://www.investopedia.com/terms/m/montecarlosimulation.asp
+
+\bibitem{usp2024}
+University of São Paulo. (2024). \textit{Monte Carlo Simulation lecture}. Retrieved from https://edisciplinas.usp.br/pluginfile.php/5190162/mod\_resource/content/1/Monte\%20Carlo\%20Simulation\%20lecture.pdf
+
+\bibitem{zainordin2022}
+Zainordin, R. (2022). \textit{Simulation for Discrete Variable (Monte Carlo Method)}. YouTube video. Retrieved from https://www.youtube.com/watch?v=CgAkhy05De4
+
+\bibitem{sciencedirect2024}
+ScienceDirect. (2024). \textit{Monte Carlo Simulation - an overview}. Retrieved from https://www.sciencedirect.com/topics/economics-econometrics-and-finance/monte-carlo-simulation
+
+\bibitem{rubinstein2016}
+Rubinstein, R. Y., \& Kroese, D. P. (2016). \textit{Simulation and the Monte Carlo Method}. Wiley Online Library.
+
+\bibitem{fishman2006}
+Fishman, G. (2006). \textit{A First Course in Monte Carlo}. Stamford, CT: Thomson Learning. Book review in Chinese University of Hong Kong Statistics Department.
+
+\bibitem{poldrack2022}
+Poldrack, R. A. (2022). \textit{Statistical Thinking for the 21st Century: Monte Carlo Simulation}. Retrieved from https://stats.libretexts.org/Bookshelves/Introductory\_Statistics/Statistical\_Thinking\_for\_the\_21st\_Century\_(Poldrack)/14:\_Resampling\_and\_Simulation/14.01:\_Monte\_Carlo\_Simulation
+
+\bibitem{guo2022nature}
+Guo, P., Xiao, K., Ye, Z., Zhu, H., \& Zhu, W. (2022). Intelligent career planning via stochastic subsampling reinforcement learning. \textit{Nature Scientific Reports}, 12, 8332.
+
+\bibitem{petersen2012}
+Petersen, A. M., et al. (2012). Persistence and uncertainty in the academic career. \textit{Proceedings of the National Academy of Sciences}, 109(14), 5213-5218.
+
+\bibitem{montecarlo2019}
+Schlaffer, C., \& Heiler, G. (2019). \textit{The MonteCarlo Package Vignette}. CRAN. Retrieved from https://cran.r-project.org/web/packages/MonteCarlo/vignettes/MonteCarlo-Vignette.html
+
+\bibitem{monaco2025}
+monaco development team. (2025). \textit{monaco - PyPI}. Retrieved from https://pypi.org/project/monaco/
+
+\bibitem{reddit2018}
+Reddit Statistics Community. (2018). \textit{Jobs which Utilise Monte Carlo Simulation}. Retrieved from https://www.reddit.com/r/statistics/comments/8svwr1/jobs\_which\_utilise\_monte\_carlo\_simulation/
+
+\bibitem{rubinstein2017}
+Rubinstein, R. Y., \& Kroese, D. P. (2017). \textit{Simulation and the Monte Carlo Method} (3rd ed.). John Wiley \& Sons.
+
+\bibitem{guo2022pmc}
+Guo, P., Xiao, K., Ye, Z., Zhu, H., \& Zhu, W. (2022). Intelligent career planning via stochastic subsampling reinforcement learning. \textit{PMC}, PMC9117248.
+
+\bibitem{tidymc2025}
+tidyMC development team. (2025). \textit{Monte Carlo Simulations made easy and tidy with tidyMC}. CRAN. Retrieved from https://cran.r-project.org/web/packages/tidyMC/vignettes/tidyMC.html
+
+\bibitem{indeed2025}
+Indeed Career Guide. (2025). \textit{What Is the Monte Carlo Simulation? (And Steps for Using it)}. Retrieved from https://www.indeed.com/career-advice/career-development/monte-carlo-simulation
+
+\bibitem{montetools2023}
+Kosty, S. (2023). \textit{montetools: An R package for running and presenting Monte Carlo simulations}. GitHub. Retrieved from https://github.com/scottkosty/montetools
+
+\bibitem{nasa2020}
+NASA. (2020). \textit{Multi-Model Monte Carlo Estimators for Trajectory Simulation}. NASA Technical Reports Server.
+
+\bibitem{cfi2025}
+Corporate Finance Institute. (2025). \textit{Monte Carlo Simulation - How it Works, Application}. Retrieved from https://corporatefinanceinstitute.com/resources/financial-modeling/monte-carlo-simulation/
+
+\bibitem{datascience2025}
+Towards Data Science. (2025). \textit{Hands on Career Path Modelling Using Markov Chain, with Python}. Retrieved from https://towardsdatascience.com/hands-on-career-path-modelling-using-markov-chain-with-python-022f09090c31/
+
+\end{thebibliography}
+
+\end{document}
+
