@@ -1,0 +1,224 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+Latent Class Analysis (LCA) represents a powerful statistical methodology for identifying unobserved heterogeneity in populations through the analysis of categorical indicator variables. As a person-centered approach, LCA moves beyond traditional variable-centered methods by identifying distinct subgroups or "latent classes" of individuals who share similar patterns of responses across multiple observed characteristics. In the context of career trajectory analysis, LCA provides a sophisticated framework for uncovering different pathways of professional development, allowing researchers to identify meaningful career patterns that may not be apparent through conventional analytical approaches. This methodology is particularly valuable for understanding how various personal, organizational, and environmental factors combine to create distinct career progression patterns within specific populations or professions.
+
+\subsubsection{Approach Description \& Goal}
+
+Latent Class Analysis is a probabilistic modeling algorithm that enables clustering of data and statistical inference through the identification of unmeasured or unobserved groups within a population[1]. The fundamental premise of LCA rests on finite mixture modeling, where the observed distribution of variables results from a finite latent mixture of underlying distributions[1]. LCA models operate under the assumption that latent classes are homogeneous within themselves but distinct from each other, effectively serving as a probabilistic method of unsupervised clustering[1].
+
+The primary goal of LCA is to determine if unmeasured groups exist within a population based on patterns of observed variables or "indicators" used in the modeling process[1]. In career trajectory research, this translates to identifying distinct career paths or professional development patterns that characterize different subgroups of workers. Rather than assuming all individuals follow similar career progression patterns, LCA acknowledges the heterogeneity inherent in career development and seeks to identify meaningful subgroups that share common trajectory characteristics[2].
+
+LCA provides a way to examine differential treatment effects or outcomes across identified subgroups, making it particularly valuable for understanding how various interventions, policies, or organizational factors may affect different types of career trajectories[2]. This approach facilitates targeting of future resources to subgroups that promise to show maximum response to specific career development interventions[2].
+
+\subsubsection{Critical Variables}
+
+The effectiveness of LCA depends heavily on the selection and specification of appropriate indicator variables that capture the essential characteristics defining latent class membership. In career trajectory analysis, several categories of variables are typically employed as inputs to LCA models.
+
+\textbf{Temporal Career Indicators} form the foundation of career trajectory LCA models. These include variables capturing career progression over time, such as promotion rates, job level changes, salary progression patterns, and tenure in various positions[5]. For longitudinal analyses, repeated measures of employment status, work intensity (such as days worked per year), and career advancement markers across multiple time points are essential[5].
+
+\textbf{Behavioral and Performance Indicators} capture individual differences in work-related behaviors and outcomes. These may include performance ratings, productivity measures, training completion rates, leadership role assumption, and participation in professional development activities[4]. Such variables help distinguish between high-performing and low-performing career trajectory classes.
+
+\textbf{Demographic and Background Variables} provide context for understanding career patterns. Age, gender, education level, socioeconomic background, and prior work experience are commonly included as either class-defining indicators or as covariates to predict class membership[17]. These variables help explain why individuals follow different career trajectories.
+
+\textbf{Organizational and Environmental Factors} capture the influence of workplace characteristics on career development. Variables such as organizational size, industry sector, geographic location, availability of mentoring programs, and organizational support for career development are relevant indicators[4].
+
+\textbf{Motivational and Attitudinal Variables} reflect individual differences in career orientation and preferences. These may include measures of career aspirations, work-life balance preferences, risk tolerance, and intrinsic versus extrinsic motivation[4]. Such variables are particularly important in identifying different motivational profiles that drive career choices.
+
+\subsubsection{Key Overviews}
+
+Several foundational academic works provide comprehensive introductions to LCA methodology and its applications in social science research.
+
+Collins and Lanza's "Practitioner's Guide to Latent Class Analysis" published in PMC provides an accessible introduction to LCA methodology for applied researchers[1]. This comprehensive guide explains the fundamental concepts of finite mixture modeling and demonstrates how LCA identifies unobserved groups within populations based on patterns of categorical indicators. The authors emphasize the importance of careful data examination, including checking for extreme values and transforming non-normal distributions, as LCA models can be sensitive to distributional characteristics. The guide provides practical advice on model specification, including the recommendation to exclude categories with less than 10\% of the sample to avoid undermining the "latency" of identified classes. The work also addresses the critical distinction between LCA (for categorical indicators) and Latent Profile Analysis (for continuous indicators), establishing clear nomenclature for different types of mixture models.
+
+Masyn's "Latent Class Analysis: A Guide to Best Practice" published in the Journal of Abnormal Child Psychology serves as a comprehensive methodological guide for conducting rigorous LCA research[14]. This work emphasizes the importance of theoretical grounding in indicator variable selection and provides detailed guidance on model selection criteria. The author discusses various fit indices including BIC, SABIC, and CAIC, while noting that reliance on statistical criteria alone is insufficient for model selection. The guide establishes best practices for reporting LCA results, including the need to present multiple fit criteria, entropy values, and average latent class posterior probabilities. Masyn recommends that average posterior probabilities should ideally exceed 0.90, though values between 0.80 and 0.90 may be acceptable when other criteria are met and the model has strong theoretical support.
+
+Hagenaars and McCutcheon's work on LCA as an alternative perspective on subgroup analysis demonstrates the method's utility in addressing methodological challenges in traditional subgroup analysis[2]. The authors argue that LCA provides a superior approach to identifying differential treatment effects by moving beyond simple demographic categorizations to identify latent subgroups characterized by multiple dimensions simultaneously. This approach addresses common problems in subgroup analysis including high Type I error rates, low statistical power, and limitations in examining higher-order interactions. The work emphasizes the person-centered nature of LCA, which focuses on relationships among individuals rather than relationships among variables, representing a fundamental shift from variable-centered approaches that seek to understand "the average person" to person-centered approaches that acknowledge heterogeneity and identify "multiple average persons."
+
+The ISPOR Primer on Latent Class Analysis provides a practical introduction to LCA specifically for health outcomes research, though its principles are broadly applicable to career research[16]. This primer emphasizes LCA's role as a person-centered approach that defines mutually exclusive and exhaustive subgroups based on common characteristics. The authors highlight the method's ability to recognize and leverage relationships between observed variables to cluster individuals for exploratory or explanatory investigations. The primer distinguishes LCA from factor analysis, noting that while factor analysis maps items onto continuous latent variables, LCA deals with categorical latent constructs. The work provides practical guidance on interpreting LCA results, emphasizing that true class membership is unknown for each individual and that classes represent categories of a latent variable that can only be measured through patterns of responses on indicator variables.
+
+\subsubsection{Mathematical Approach}
+
+The mathematical foundation of LCA rests on finite mixture modeling principles, where the observed distribution of indicator variables is conceptualized as a mixture of underlying class-specific distributions. For dichotomous variables $X = \{0,1\}$, the basic LCA model for a single item can be expressed as[3]:
+
+$$P(X_{vi} = 1) = \sum_{g=1}^{G} \pi_{g} \pi_{ig}$$
+
+where $P(X_{vi} = 1)$ denotes the unconditional probability that a randomly selected individual $v$ obtained a score of $X = 1$ on item $i$ (where $i = 1, \ldots, I$), and the parameter:
+
+$$\pi_{ig} = P(X_{vi} = 1 | G = g)$$
+
+represents the conditional response probability for item $i$ in latent class $g$[3].
+
+The complementary probability for the zero response is given by:
+
+$$P(X_{vi} = 0 | G = g) = 1 - \pi_{ig}$$
+
+The class size parameter $\pi_g$ indicates the unconditional probability of belonging to latent class $g$ (where $g = 1, \ldots, G$), and the sum of all class-size parameters equals unity:
+
+$$\sum_{g=1}^{G} \pi_{g} = 1$$
+
+For multiple indicators, the local independence assumption specifies that indicator variables are conditionally independent given latent class membership. This allows the joint probability of a response pattern $\mathbf{y} = (y_1, y_2, \ldots, y_L)$ to be expressed as:
+
+$$P(\mathbf{y}) = \sum_{g=1}^{G} \pi_g \prod_{l=1}^{L} P(y_l | G = g)$$
+
+The general form of the latent class model expresses the relationship between the distribution of manifest variables and values of the categorical latent variable as[19]:
+
+$$P_Y(\mathbf{y}) = \sum_{x} P_X(x) P_{Y|X}(\mathbf{y}|x)$$
+
+where $\mathbf{y} = (y_1, \ldots, y_L)$ is the response vector of $L$ manifest categorical variables, $x$ represents a value of the latent categorical variable, $P_Y(\mathbf{y})$ is the observed distribution of $\mathbf{y}$, $P_X(x)$ is the distribution of the latent variable, and $P_{Y|X}(\mathbf{y}|x)$ is the conditional distribution of responses given latent class membership[19].
+
+Parameter estimation typically employs maximum likelihood methods, where the log-likelihood function is maximized to obtain estimates of class sizes ($\pi_g$) and conditional response probabilities ($\pi_{ig}$). The Expectation-Maximization (EM) algorithm is commonly used for this optimization, alternating between E-steps that compute expected class memberships and M-steps that update parameter estimates based on these expectations[1].
+
+Model selection involves comparing solutions with different numbers of latent classes using information criteria such as the Bayesian Information Criterion (BIC), Akaike Information Criterion (AIC), and sample-size adjusted BIC (SABIC). Additionally, entropy measures and average latent class posterior probabilities provide indicators of classification quality[14].
+
+\subsubsection{Example Applications}
+
+Several studies demonstrate the application of LCA to career trajectory analysis, showcasing the method's versatility in uncovering distinct patterns of professional development across different contexts and populations.
+
+Ramos-Villagrasa and colleagues' application of latent class growth analysis to identify working life trajectories using the Spanish WORKss cohort exemplifies the use of LCA methods for understanding long-term career patterns[5]. This study analyzed 247,475 individuals born between 1956-1965, using the number of days worked per year as a repeated measure across 32 time points from 1981-2013. The analysis identified four distinct working life trajectories: "high labor force participation" (40.2\% of sample), characterized mainly by men with extensive work experience; "decreased labor force participation" (9.2\%); "increased labor force participation" (23.9\%); and "low labor force participation" (26.6\%), composed primarily of women with limited work experience. The study demonstrated how administrative data can be leveraged to identify different trajectory patterns that may be associated with health and social outcomes, representing a significant methodological advance in occupational epidemiology by moving beyond simple employment status categorizations to capture the dynamic nature of working life patterns.
+
+The Educational Longitudinal Study of 2002 analysis by Chen and colleagues provides an exemplary application of LCA to understanding the connection between career and technical education (CTE) participation and subsequent work and school transitions[17]. This study used LCA to examine latent pathways connecting high school CTE participation with employment during high school and subsequent educational and work transitions in young adulthood. The analysis identified four distinct latent pathways: a "CTE-to-work pathway," a "BA-focused pathway," a "work-focused pathway," and a "low-career motivation pathway." The study revealed important gender differences, with male students more likely to follow work-related paths and females more likely to pursue education-focused trajectories. Higher mathematics and reading test scores, along with higher parental socioeconomic status, were associated with increased likelihood of following the BA-focused pathway compared to the CTE-to-work pathway. Both the BA-focused and CTE-to-work groups demonstrated relatively higher earnings and job satisfaction compared to the other trajectory groups, providing valuable insights for educational policy and career counseling practices.
+
+Recent research by Morin and colleagues on motivational profiles in sustainable career trajectories demonstrates the application of LCA to understanding contemporary career development challenges[4]. This study used LCA to identify motivational profiles related to sustainable career engagement, integrating Career Construction Theory, Social Cognitive Career Theory, and Sustainable Career Theory into a four-dimensional structure encompassing motivational profile configurations. The analysis identified five distinct classes based on career motivations and pathways, providing insights into unique emergent patterns within the population. The study focused on intrinsic motives and professional aims, contributing to understanding of sustaining career engagement and development in the context of environmental and sustainability considerations. This application demonstrates how LCA can be used to understand complex motivational structures that drive career decisions in contemporary work environments, where sustainability and purpose-driven work are increasingly important factors in career development.
+
+\subsubsection{Critiques}
+
+Several significant limitations and methodological concerns have been raised regarding the application of LCA in research contexts, particularly relevant to career trajectory analysis.
+
+A fundamental critique concerns the testability and validity of LCA models when underlying assumptions are violated. Pepe and Janes' analysis of LCA in diagnostic test performance provides insights applicable to career research, noting that LCA models are not fully testable with observed data, and when the model is incorrect, the meaningfulness of resulting estimates becomes questionable[11]. The authors emphasize that the conditional independence assumption, which specifies that indicator variables are independent given latent class membership, often fails in practice. In career trajectory research, this translates to concerns about whether career indicators truly exhibit local independence within identified career trajectory classes, or whether unmeasured factors create dependencies that violate model assumptions.
+
+The complexity and flexibility of LCA models present both opportunities and challenges for researchers. As noted in a comprehensive review of latent class trajectory modeling, there are numerous choices to make in the modeling process, and each choice can significantly influence the final number of classes and their characteristics[12]. The choice between different model specifications (such as Latent Class Growth Models versus Latent Class Growth Mixture Models) can lead to substantially different results, with fixed within-class variance parameters typically producing larger numbers of classes compared to models with freely estimated variance parameters. Sample size and the number of measurement occasions also influence the number and characteristics of identified classes, creating challenges for replicability across studies[15].
+
+Model selection presents ongoing challenges due to inconsistency among fit indices. The review literature consistently acknowledges that different fit criteria (BIC, AIC, SABIC, entropy) may suggest different optimal numbers of classes, and there is no consensus on which criteria should take precedence[12]. This inconsistency is widely recognized as one of the major limitations of latent class models, leading to recommendations that researchers compare multiple fit indices with clinical or theoretical interpretation of latent class solutions. However, this approach introduces subjectivity into what is intended to be an objective statistical procedure.
+
+The assumption of local independence is particularly problematic in career research contexts. Most career development processes are not truly dichotomous but occur in varying degrees of intensity and success, which can induce correlation between career indicators[11]. Additionally, mechanisms giving rise to career outcomes may be common to multiple indicators, such as when organizational culture affects multiple aspects of career development simultaneously. When conditional independence is violated, considerable bias can occur in parameter estimates, with simulations showing that observed correlations between indicators that are stronger than those due solely to latent class membership can lead to biased estimates of class characteristics[11].
+
+The meaningful interpretation of latent classes requires substantial domain expertise and theoretical grounding, yet LCA can proceed technically without clear definitions of the underlying constructs being measured[11]. In career research, this translates to the need for clear theoretical frameworks about what constitutes distinct career trajectories and why certain patterns of career indicators should cluster together. Without such theoretical foundations, the results of LCA may lack practical significance or interpretability, even when statistical criteria suggest good model fit.
+
+\subsubsection{Software}
+
+\subsubsubsection{R Packages}
+
+The \textbf{poLCA} package represents one of the most established R implementations for polytomous variable latent class analysis[6]. This package specializes in latent class analysis and latent class regression models for polytomous outcome variables, also known as latent structure analysis. poLCA provides comprehensive functionality for fitting latent class models to categorical data, with capabilities for handling multiple response categories per indicator variable. The package includes built-in functions for model comparison using information criteria, bootstrap procedures for confidence interval estimation, and visualization tools for presenting class profiles. poLCA's strength lies in its mature implementation and extensive documentation, making it particularly suitable for researchers new to LCA. The package supports both exploratory and confirmatory approaches to latent class modeling and provides detailed output for model interpretation including conditional response probabilities and class membership predictions.
+
+The \textbf{tidyLPA} package offers a user-friendly approach to Latent Profile Analysis, which extends to latent class analysis when working with mixed variable types[7]. Designed with the "tidy" philosophy of R programming, tidyLPA provides functionality to specify different models that determine whether and how different parameters (means, variances, and covariances) are estimated. The package is particularly well-suited for beginners to LPA/LCA, offering intuitive syntax and clear documentation while maintaining fine-grained options for advanced users. tidyLPA supports comparison of solutions for different numbers of profiles and provides built-in model selection tools. The package interfaces with the mclust package for model estimation and includes functions for handling missing data through single imputation methods. Its strength lies in its accessibility and integration with the broader tidyverse ecosystem of R packages.
+
+The \textbf{misty} package provides Mplus integration functions, including specialized functions for latent class analysis model specification[10]. The mplus.lca function within this package writes Mplus input files for conducting LCA with continuous, count, ordered categorical, and unordered categorical variables. This approach leverages the powerful Mplus software while maintaining R workflow integration. The package supports six different variance-covariance structures for continuous indicators and assumes local independence for other variable types. The misty package is particularly valuable for researchers who prefer Mplus's estimation algorithms but want to maintain their analysis workflow within R. It includes options for automatic model estimation and provides comprehensive control over Mplus estimation parameters including multiple random starts, convergence criteria, and output options.
+
+\subsubsubsection{Python Packages}
+
+\textbf{StepMix} represents a comprehensive Python implementation following the scikit-learn API for generalized mixture modeling[13]. This package supports both categorical data (Latent Class Analysis) and continuous data (Gaussian Mixtures/Latent Profile Analysis), making it versatile for different research contexts. StepMix provides multiple stepwise Expectation-Maximization estimation methods based on pseudolikelihood theory, which is particularly valuable for models incorporating covariates and distal outcomes. The package handles missing values through Full Information Maximum Likelihood (FIML) and includes support for parametric and non-parametric bootstrapping. StepMix's integration with the scikit-learn ecosystem makes it accessible to researchers familiar with machine learning workflows in Python. The package supports 1-step, 2-step, and 3-step estimation approaches, providing flexibility for different research designs and allowing for proper handling of classification uncertainty in subsequent analyses.
+
+\subsubsubsection{Specialized Software}
+
+\textbf{LatentGOLD} represents a state-of-the-art commercial software solution specifically designed for latent class analysis, latent profile analysis, and mixture modeling[8]. The software features a user-friendly point-and-click graphical user interface compatible with Windows operating systems and supports importing SPSS system files and delimited text files. The Basic version includes modules for Cluster analysis (defining latent class models for various variable types), DFactor (implementing multidimensional structures on latent classes), Regression (estimating models with parameters varying across latent classes), and Step3 (examining relationships between latent classes and external variables). Advanced options enhance the basic modules with support for complex sampling designs, multilevel latent class models, and continuous latent variables. LatentGOLD's strength lies in its specialized focus on mixture modeling and its comprehensive implementation of advanced features not readily available in general-purpose statistical software.
+
+\textbf{SAS PROC LCA and PROC LTA} provide specialized procedures for latent class analysis and latent transition analysis within the SAS environment[9]. PROC LCA includes features for multiple-groups LCA, measurement invariance testing across groups, LCA with covariates for predicting latent class membership, and the ability to incorporate sampling weights and cluster structures. PROC LTA extends these capabilities to longitudinal panel designs where latent classes (termed "latent statuses") are measured over time. These procedures are particularly valuable for researchers working in organizational or institutional contexts where SAS is the standard statistical platform. The integration with SAS's data management capabilities makes these procedures well-suited for large-scale administrative data analysis common in career trajectory research. The procedures provide extensive output options and support various estimation methods optimized for different data characteristics and research designs.
+
+\subsubsection{Example Study Design}
+
+\subsubsubsection{Key Variables}
+
+This example study would examine career trajectories of U.S. Army officers using a comprehensive set of indicators across multiple domains. \textbf{Branch-specific performance indicators} would include specialized metrics relevant to each branch division: for Armor officers, variables such as gunnery qualification scores, tactical exercise performance ratings, and armored vehicle operation certifications; for Logistics officers, supply chain management efficiency ratings, resource allocation performance, and logistics exercise scores; for Aviation officers, flight hours completed, aircraft qualification levels, and aviation safety records; and for Cyber officers, cybersecurity certification achievements, network defense exercise performance, and cyber operation success rates.
+
+\textbf{General military performance variables} would encompass Officer Evaluation Report (OER) ratings across multiple evaluation periods, Physical Fitness Test scores over time, completion rates for military education programs (Command and General Staff College, War College), leadership position assignments, and deployment frequency and duration. \textbf{Career progression indicators} would include promotion timing relative to peers, time in grade for each rank, lateral movement between assignments, geographic mobility patterns, and retention decisions at key career points.
+
+\textbf{Non-cognitive attribute measures} would incorporate personality assessments adapted for military contexts, leadership style indicators, stress resilience measures, team collaboration ratings, innovation and adaptability scores, and ethical decision-making assessments. These variables would be collected through validated psychological instruments and peer/supervisor ratings to capture individual differences that influence career trajectory patterns beyond observable performance metrics.
+
+\subsubsubsection{Sample \& Data Collection}
+
+The study would employ a longitudinal cohort design following approximately 2,000 U.S. Army officers from their initial commissioning through 15 years of service, with balanced representation across the four branch divisions (Armor, Logistics, Aviation, and Cyber). Data collection would occur at regular intervals: annually for performance metrics and evaluation scores, bi-annually for non-cognitive assessments, and continuously for administrative data such as assignments, training completions, and career milestones.
+
+Administrative data would be obtained from military personnel databases including Officer Record Briefs, evaluation records, training databases, and assignment histories. Performance data would be collected from existing military assessment systems including fitness tests, professional development evaluations, and specialized skill certifications. Non-cognitive attributes would be assessed through a combination of validated psychological instruments administered during in-processing, mid-career assessment points, and structured interviews with supervisors and peers.
+
+The sampling frame would ensure adequate representation across demographic characteristics (gender, ethnicity, educational background), commissioning sources (West Point, ROTC, Officer Candidate School), and initial assignment locations to capture the full spectrum of Army officer career experiences. Retention in the study would be maintained through coordination with military personnel systems and incentive structures aligned with professional development goals.
+
+\subsubsubsection{Analysis Approach}
+
+The analysis would employ a multi-step LCA approach beginning with exploratory analyses to determine the optimal number of latent career trajectory classes. Model selection would compare solutions with 2-8 classes using multiple fit indices including BIC, AIC, SABIC, and entropy, supplemented by substantive interpretation of class profiles in consultation with military career development experts.
+
+Cross-sectional LCA would first be conducted using career outcome indicators measured at the 10-year service point to identify distinct career achievement patterns. Subsequently, longitudinal latent class growth analysis would be employed to capture trajectory patterns over time, incorporating repeated measures of performance, advancement, and assignment characteristics. The analysis would examine both class membership determinants (using branch assignment, initial performance indicators, and demographic characteristics as covariates) and class-specific outcome patterns.
+
+Three-step analysis approaches would be employed to examine relationships between identified trajectory classes and external outcomes such as retention intentions, job satisfaction, and leadership effectiveness while properly accounting for classification uncertainty. Subgroup analyses would explore whether trajectory patterns vary across branch divisions and demographic characteristics, with particular attention to identifying factors that predict successful career advancement within each identified trajectory class.
+
+\subsubsubsection{Potential Findings}
+
+The analysis might identify four to six distinct career trajectory classes reflecting different patterns of military career development. A "High Achievement Trajectory" class could emerge, characterized by consistently superior performance ratings, rapid promotion progression, selection for prestigious assignments and education opportunities, and strong leadership evaluations across multiple domains. This class might represent 15-20\% of the sample and could be distinguished by high initial performance scores and strong non-cognitive attributes such as leadership potential and adaptability.
+
+A "Steady Professional Development" class might represent the largest proportion of officers (40-50\%), characterized by consistent but not exceptional performance, normal promotion timing, completion of required professional development milestones, and sustained contributions within their specialties. A "Specialized Expert" trajectory could identify officers who demonstrate exceptional technical competence within their branch specialization but may have limited interest in or opportunity for broader leadership roles, potentially representing 20-25\% of the sample.
+
+Additional classes might include a "Transitional Career" pattern reflecting officers who change specializations or face career disruptions but maintain overall positive trajectories, and potentially a "Limited Advancement" class characterized by performance challenges, delayed promotions, or other factors limiting career progression. Branch-specific analyses might reveal distinct patterns within each division, such as different advancement patterns between technical branches (Aviation, Cyber) and traditional combat arms (Armor) or support branches (Logistics).
+
+\subsubsubsection{Potential Implications}
+
+The identification of distinct career trajectory classes would have significant implications for Army personnel management and officer development policies. Understanding the characteristics and predictors of different trajectory patterns could inform early identification and intervention strategies, allowing the Army to provide targeted support and development opportunities matched to individual career patterns and potential.
+
+For officers following high achievement trajectories, the findings could support development of accelerated leadership development programs, early identification for senior leadership positions, and tailored assignment patterns that maximize their potential contributions. For those in steady professional development patterns, the results could inform standard career development practices and identify opportunities for enhanced professional growth that might facilitate movement into higher achievement trajectories.
+
+The research could inform recruitment and selection practices by identifying early indicators associated with different career success patterns, potentially improving the Army's ability to select and develop officers who will thrive in military careers. Additionally, the findings could support evidence-based career counseling, helping officers understand their likely career trajectories and make informed decisions about professional development, specialization choices, and long-term career planning. From an organizational perspective, understanding career trajectory patterns could improve workforce planning, succession planning, and resource allocation for professional development programs across different officer populations and specializations.
+
+\begin{thebibliography}{20}
+
+\bibitem{collins2021}
+Collins, L.M. (2021). Practitioner's Guide to Latent Class Analysis. \textit{PMC}.
+
+\bibitem{masyn2011}
+Masyn, K.E. (2011). Latent Class Analysis: An Alternative Perspective on Subgroup Analysis. \textit{PMC}.
+
+\bibitem{ucla2024}
+UCLA Statistical Consulting Group. (2024). Basic latent class analysis model. \textit{UCLA Institute for Digital Research and Education}.
+
+\bibitem{sustainability2025}
+Morin, S. et al. (2025). Pathways to Sustainable Careers: Exploring Motivational Profiles Through Latent Class Analysis. \textit{Sustainability}, 17(3), 1253.
+
+\bibitem{ramos2017}
+Ramos-Villagrasa, P.J. et al. (2017). Application of latent growth modeling to identify different working life trajectories: the case of the Spanish WORKss cohort. \textit{PubMed}.
+
+\bibitem{linzer2022}
+Linzer, D. \& Lewis, J. (2022). poLCA: Polytomous Variable Latent Class Analysis. \textit{CRAN}.
+
+\bibitem{tidylpa2021}
+Rosenberg, J.M. et al. (2021). tidyLPA: Latent Profile Analysis. \textit{CRAN}.
+
+\bibitem{latentgold2025}
+Statistical Innovations. (2025). Powerful and User-Friendly Latent Class Analysis. \textit{LatentGOLD}.
+
+\bibitem{proclca2021}
+Lanza, S.T. et al. (2021). PROC LCA \& PROC LTA Users' Guide Version 1.3.2. \textit{The Methodology Center, Penn State}.
+
+\bibitem{misty2013}
+Yanagida, T. (2013). Mplus Model Specification for Latent Class Analysis. \textit{CRAN}.
+
+\bibitem{pepe2007}
+Pepe, M.S. \& Janes, H. (2007). Insights into latent class analysis of diagnostic test performance. \textit{Biostatistics}, 8(2), 474-484.
+
+\bibitem{review2012}
+Nagin, D.S. \& Odgers, C.L. (2012). Review and discussion of latent class trajectory modeling. \textit{VUMC Research}.
+
+\bibitem{stepmix2022}
+Morin, S. et al. (2022). StepMix: A Python Package for Pseudo-Likelihood Estimation of Generalized Mixture Models. \textit{PyPI}.
+
+\bibitem{masyn2020}
+Masyn, K.E. (2020). Latent Class Analysis: A Guide to Best Practice. \textit{Sage Journals}.
+
+\bibitem{trajectory2022}
+Cole, V.T. et al. (2022). Latent class trajectory modelling: impact of changes in model specification. \textit{PMC}.
+
+\bibitem{ispor2016}
+ISPOR Student Network. (2016). A Primer on Latent Class Analysis. \textit{ISPOR}.
+
+\bibitem{chen2021}
+Chen, X. et al. (2021). Using Latent Class Analysis to Link Career and Technical Education in Adolescence and Work and School Transitions in Young Adulthood. \textit{Ingenta Connect}.
+
+\bibitem{theanalysisfactor2024}
+Statology. (2024). What Is Latent Class Analysis? \textit{The Analysis Factor}.
+
+\bibitem{statistics2013}
+Statistics.com. (2013). Latent Class Analysis (LCA). \textit{Statistics.com Glossary}.
+
+\bibitem{jmp2010}
+JMP Statistical Software. (2010). Overview of the Latent Class Analysis Platform. \textit{JMP Support}.
+
+\end{thebibliography}
+
+\end{document}

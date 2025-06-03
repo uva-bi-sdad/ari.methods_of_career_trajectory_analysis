@@ -1,4 +1,4 @@
-Describe Policy-Testing Simulation as a method for the analysis of career trajectories using the following rubric: 
+Describe Latent Class Analysis as a method for the analysis of career trajectories using the following rubric: 
 
 1. Approach Description & Goal - provide a brief explanation of the approach and for what purpose(s) the approach is generally used.
 2. Critical Variables - describe the typical variable categories generally used as inputs to the approach.
@@ -7,7 +7,7 @@ Describe Policy-Testing Simulation as a method for the analysis of career trajec
 5. Example Applications - provide a one paragraph summary of 2-4 academic articles and/or books that provide good examples of the approach being applied to the analysis of career trajectories.
 6. Critiques - provide a brief summary of the major cons of using this approach (with references).
 7. Software - provide a one paragraph description of each R and Python package commonly used in this approach. Also include other additional software custom-made for the approach.
-8. Example Study Design - Attached is a document defining  potential indicators of career trajectories of U.S. Army officers. These indicators are broken out by four U.S. Army Branch Divisions: Armor, Logistics, Aviation, and Cyber. The document also defines additional, non-branch specific indicators and non-cognitive attribute indicators that can be relevant. Using this provided set of potential indicators, design an overview of a an example Policy-Testing Simulation study of career trajectories of U.S. Army officers. The overview should include the following sections: Key Variables, Sample & Data Collection, Analysis Approach, Potential Findings, and Potential Implications.
+8. Example Study Design - Attached is a document defining  potential indicators of career trajectories of U.S. Army officers. These indicators are broken out by four U.S. Army Branch Divisions: Armor, Logistics, Aviation, and Cyber. The document also defines additional, non-branch specific indicators and non-cognitive attribute indicators that can be relevant. Using this provided set of potential indicators, design an overview of a an example Latent Class Analysis study of career trajectories of U.S. Army officers. The overview should include the following sections: Key Variables, Sample & Data Collection, Analysis Approach, Potential Findings, and Potential Implications.
 
 Make sure "key overviews" includes a paragraph summary for each article.
 
