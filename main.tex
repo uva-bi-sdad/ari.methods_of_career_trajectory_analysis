@@ -12,6 +12,15 @@
 \usepackage{longtable}
 \usepackage{subfiles}
 \usepackage{titlesec}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[itemize]{leftmargin=*}
+
+\newcommand{\rr}{\raggedright}
+\newcommand{\tn}{\tabularnewline}
 
 % Define new counter for subsubsubsection
 \titleclass{\subsubsubsection}{straight}[\subsubsection]
@@ -35,7 +44,7 @@
 \setcounter{tocdepth}{3}
 
 \geometry{margin=1in}
-\doublespacing
+\singlespacing
 
 \title{Methods for Career Trajectory Analysis of U.S. Army Officers - A Comprehensive Guidebook}
 \author{}
@@ -46,6 +55,8 @@
 \maketitle
 
 \tableofcontents
+
+\doublespacing
 
 \newpage
 \section{Introduction}
