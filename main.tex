@@ -1,4 +1,23 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[man]{apa7}
+\usepackage{lipsum}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{bibliography.bib}
+
+\leftheader{Weiss}
+
+\abstract{This guidebook presents a comprehensive framework for analyzing the career trajectories of U.S. Army officers, systematically cataloging 23 distinct methodological approaches. Organized into six overarching categories—descriptive and classification methods, longitudinal and cohort analysis, network analysis, quantitative performance metrics, modeling and simulation, and policy evaluation—it provides a unified analytical lens for understanding professional development pathways. Each method is introduced through a consistent eight-part structure covering its purpose, critical variables, key literature, mathematical foundations, applications, critiques, supporting software, and exemplar study designs. Emphasizing both retrospective and prospective applications, the guidebook highlights how career data can be mapped, modeled, and interpreted to reveal structural patterns, key decision points, and predictors of success. By integrating approaches from sociology, psychology, economics, and computational sciences, the volume promotes cross-disciplinary insight, methodological rigor, and evidence-based innovation in talent management. Ultimately, the work serves as a resource for researchers, practitioners, and policymakers seeking to better understand military officer career development, optimize workforce planning, and design targeted interventions to improve retention, advancement, and leadership outcomes.}
+
+\keywords{Career Path Mapping, Demographic Analysis, Latent Class Analysis, Historical Trend Analysis, Job Classification, Optimal Matching Analysis, Longitudinal Cohort Studies, Retention and Attrition Patterns, Promotion Board Analysis, Social Network Analysis, Mentorship and Sponsorship Studies, Quantitative Performance Metrics, Comparative Branch/Service Analysis, Career Field Health Assessment, Education and Training Impact Assessment, Agent-Based Modeling, Monte Carlo Simulations, System Dynamics Models, Strategic Workforce Planning Models, Training Pipeline Optimization, Force Structure Projections, Policy Impact Evaluation, Policy-Testing Simulations
+}
+
+\authornote{
+   \addORCIDlink{Aaron D. Schroeder}{0000-0003-4372-2241}
+
+  Correspondence concerning this article should be addressed to Aaron D. Schroeder, Biocomplexity Institute, University of Virginia.  E-mail: ads7fg@virginia.edu}
+
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -6,7 +25,7 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{setspace}
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -16,6 +35,12 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{enumitem}
+\usepackage{float}
+\usepackage{url}
+
+\raggedbottom
+\doublespacing
+
 \setlist{nosep}
 \setlist[itemize]{leftmargin=*}
 
@@ -30,7 +55,27 @@
 % Format the subsubsubsection command
 \titleformat{\subsubsubsection}
   {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries} % Format: bold
+  {\thesubsection}{1em} % Number and spacing
+  {}                  % Title text
+  [\vspace{0.5ex}\hrule] % Add a horizontal line after the title
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries} % Font size and style
+  {\thesection}{1em}{}         % Section number, spacing, title
+ 
 \titlespacing*{\subsubsubsection}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titlespacing*{\subsubsection}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titlespacing*{\subsection}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titlespacing*{\section}
   {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 % Define table of contents formatting for subsubsubsection
@@ -44,16 +89,19 @@
 \setcounter{tocdepth}{3}
 
 \geometry{margin=1in}
-\singlespacing
 
 \title{Methods for Career Trajectory Analysis of U.S. Army Officers - A Comprehensive Guidebook}
-\author{}
+\shorttitle{Career Trajectory Analysis Guidebook}
+
+\author{Aaron D. Schroeder}
+\affiliation{University of Virginia}
 \date{}
 
 \begin{document}
 
 \maketitle
 
+\singlespacing
 \tableofcontents
 
 \doublespacing
@@ -152,4 +200,9 @@
 \subsection{Policy Testing Simulation}
 \subfile{policy_and_impact_evaluation/policy_testing_simulation}
 
+\printbibliography
+
+% \bibliographystyle{plainnat}
+% \setcitestyle{author, year}
+% \bibliography{bibliography}
 \end{document}

@@ -1,17 +1,4 @@
-```latex
 \documentclass[../main.tex]{subfiles}
-
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{natbib}
-
 \begin{document}
 
 Retention and attrition patterns analysis is a methodological approach that applies event history analysis (also known as survival analysis) techniques to understand and predict career trajectories within organizations. This approach focuses specifically on analyzing when and why individuals leave an organization (attrition) or stay (retention) over time, and how various factors influence these patterns. The methodology allows researchers to model the "time until event" (such as departure from an organization) while accounting for censored observations (individuals who haven't experienced the event by the end of the observation period).
@@ -20,42 +7,42 @@ Retention and attrition patterns analysis is a methodological approach that appl
 
 Retention and Attrition Patterns analysis applies survival analysis/event history analysis techniques to understand career trajectories, particularly focusing on when and why employees leave or stay in an organization. The approach models the timing of critical career events such as job changes, promotions, or organizational exits, while accounting for censored observations (when individuals haven't experienced the event by the end of the study period).
 
-The primary goals of this approach include predicting which employees are at risk of leaving an organization and when; identifying key factors that influence retention and attrition decisions; understanding patterns of career progression within organizations; developing targeted interventions to improve retention rates; and modeling career trajectories to inform talent management strategies. As noted in research, understanding the causes of events like employee turnover requires analyzing both the timing of events and the factors that influence them, making this approach particularly valuable for organizations facing high turnover costs \citep{allison1982discrete, maas2003use}.
+The primary goals of this approach include predicting which employees are at risk of leaving an organization and when; identifying key factors that influence retention and attrition decisions; understanding patterns of career progression within organizations; developing targeted interventions to improve retention rates; and modeling career trajectories to inform talent management strategies. As noted in research, understanding the causes of events like employee turnover requires analyzing both the timing of events and the factors that influence them, making this approach particularly valuable for organizations facing high turnover costs \parencite{allison1982discrete, maas2003use}.
 
 \subsubsection{Critical Variables}
 
 Typical variable categories used in retention and attrition pattern analysis include:
 
 \subsubsubsection{Individual Characteristics}
-Demographic variables (age, gender, race/ethnicity), educational background (level, field of study), cognitive ability (AFQT scores), personality traits (TAPAS dimensions), and prior experience \citep{niessen2016attrition}.
+Demographic variables (age, gender, race/ethnicity), educational background (level, field of study), cognitive ability (AFQT scores), personality traits (TAPAS dimensions), and prior experience \parencite{niessen2016attrition}.
 
 \subsubsubsection{Job-Related Factors}
-Compensation and benefits, job satisfaction, workload, work-life balance, career development opportunities, and recognition. Research shows that lack of career development remains a key driver of employee attrition—cited by 40\% of departing employees \citep{gartner2023career}.
+Compensation and benefits, job satisfaction, workload, work-life balance, career development opportunities, and recognition. Research shows that lack of career development remains a key driver of employee attrition—cited by 40\% of departing employees \parencite{gartner2023career}.
 
 \subsubsubsection{Organizational Factors}
-Corporate culture measures (which can be 10.4 times more powerful than compensation in predicting turnover), leadership quality, team dynamics, training opportunities, and innovation levels \citep{sull2022toxic}.
+Corporate culture measures (which can be 10.4 times more powerful than compensation in predicting turnover), leadership quality, team dynamics, training opportunities, and innovation levels \parencite{sull2022toxic}.
 
 \subsubsubsection{Time-Related Variables}
 Tenure in organization, time since last promotion, career stage, and historical timing (economic conditions, labor market).
 
 \subsubsubsection{Event-Specific Variables}
-Type of attrition (voluntary vs. involuntary), reason for departure (medical/physical, misconduct, performance), and destination after departure \citep{niessen2016attrition}.
+Type of attrition (voluntary vs. involuntary), reason for departure (medical/physical, misconduct, performance), and destination after departure \parencite{niessen2016attrition}.
 
 These variables serve as predictors, controls, or outcome measures, depending on the specific research question.
 
 \subsubsection{Key Overviews}
 
 \subsubsubsection{Allison, P.D. (1982) "Discrete-Time Methods for the Analysis of Event Histories"}
-Paul Allison's seminal paper introduces discrete-time methods for analyzing event history data, particularly beneficial when dealing with tied event times (multiple events occurring simultaneously). The paper addresses the challenges of conducting event history analysis, primarily focusing on two significant issues: censoring (when the event has not occurred by the end of observation) and time-varying explanatory variables. Allison demonstrates how to transform event history data into a person-period format suitable for logistic regression analysis, allowing researchers to estimate the effects of various factors on the probability of an event occurring within discrete time intervals. This approach has become foundational in career trajectory analysis because it enables researchers to account for time-dependent covariates and censored observations while using familiar statistical techniques like logistic regression \citep{allison1982discrete}.
+Paul Allison's seminal paper introduces discrete-time methods for analyzing event history data, particularly beneficial when dealing with tied event times (multiple events occurring simultaneously). The paper addresses the challenges of conducting event history analysis, primarily focusing on two significant issues: censoring (when the event has not occurred by the end of observation) and time-varying explanatory variables. Allison demonstrates how to transform event history data into a person-period format suitable for logistic regression analysis, allowing researchers to estimate the effects of various factors on the probability of an event occurring within discrete time intervals. This approach has become foundational in career trajectory analysis because it enables researchers to account for time-dependent covariates and censored observations while using familiar statistical techniques like logistic regression \parencite{allison1982discrete}.
 
 \subsubsubsection{Li, H., Ge, Y., Zhu, H., Xiong, H., \& Zhao, H. (2016) "Prospecting the Career Development of Talents: A Survival Analysis Perspective"}
-This innovative paper applies survival analysis techniques specifically to model talent career paths, focusing on two critical issues in talent management: turnover and career progression. The authors formulate the prediction of talent retention status across a sequence of time intervals as a multi-task learning problem, where prediction at each time interval is considered a separate task. They incorporate ranking constraints to effectively model both censored and uncensored data, capturing the intrinsic properties exhibited in lifetime modeling with non-recurrent and recurrent events. For modeling career progression, they predict relative occupational levels at different time intervals, with ranking constraints imposed on different occupational levels to reduce prediction error. The authors demonstrate the effectiveness of their approach through evaluation against baseline methods using real-world talent data, providing a sophisticated framework for predicting both turnover and career advancement patterns \citep{li2016prospecting}.
+This innovative paper applies survival analysis techniques specifically to model talent career paths, focusing on two critical issues in talent management: turnover and career progression. The authors formulate the prediction of talent retention status across a sequence of time intervals as a multi-task learning problem, where prediction at each time interval is considered a separate task. They incorporate ranking constraints to effectively model both censored and uncensored data, capturing the intrinsic properties exhibited in lifetime modeling with non-recurrent and recurrent events. For modeling career progression, they predict relative occupational levels at different time intervals, with ranking constraints imposed on different occupational levels to reduce prediction error. The authors demonstrate the effectiveness of their approach through evaluation against baseline methods using real-world talent data, providing a sophisticated framework for predicting both turnover and career advancement patterns \parencite{li2016prospecting}.
 
 \subsubsubsection{Maas, I. "The Use of Event-History-Analysis in Career Research"}
-This comprehensive introduction to event-history analysis in career research highlights how this methodological approach has become an essential tool for sociologists studying contemporary careers. Maas contrasts event-history analysis with alternative methods like status attainment models and log-linear models, emphasizing that event-history models are better equipped for causal analysis because they clarify the direction of causality, distinguish strengths of reciprocal effects, and model effects of previous history. The chapter addresses practical challenges, including the extensive data requirements (complete information on all jobs and their timing), and discusses three types of data sources: retrospective designs, panel studies, and administrative records. Additionally, Maas explains how event-history models allow for the introduction of time-specific independent variables and describes three main types: semi-parametric models (Cox proportional hazard model), discrete-time models, and parametric models. The chapter concludes by surveying leading issues and findings from applying event history analysis to careers, examining individual characteristics, social influences, and broader socioeconomic factors \citep{maas2003use}.
+This comprehensive introduction to event-history analysis in career research highlights how this methodological approach has become an essential tool for sociologists studying contemporary careers. Maas contrasts event-history analysis with alternative methods like status attainment models and log-linear models, emphasizing that event-history models are better equipped for causal analysis because they clarify the direction of causality, distinguish strengths of reciprocal effects, and model effects of previous history. The chapter addresses practical challenges, including the extensive data requirements (complete information on all jobs and their timing), and discusses three types of data sources: retrospective designs, panel studies, and administrative records. Additionally, Maas explains how event-history models allow for the introduction of time-specific independent variables and describes three main types: semi-parametric models (Cox proportional hazard model), discrete-time models, and parametric models. The chapter concludes by surveying leading issues and findings from applying event history analysis to careers, examining individual characteristics, social influences, and broader socioeconomic factors \parencite{maas2003use}.
 
 \subsubsubsection{"Introducing Survival and Event History Analysis"}
-This introductory text provides a comprehensive overview of survival and event history analysis techniques, explaining that these methods are particularly suited for analyzing categorical sequences of events to model entire event history career trajectories. The book focuses on the order and timing of events rather than gradual changes, making it ideal for studying career transitions, promotions, and job changes. It introduces fundamental concepts such as hazard functions, survival curves, and censoring, while explaining both parametric and non-parametric approaches to survival analysis. The text addresses practical implementation issues, including data preparation, model specification, interpretation of results, and diagnostics. Through illustrative examples, the book demonstrates how these techniques can reveal patterns in career development that might remain hidden with conventional statistical methods, making it an essential resource for researchers studying career trajectories, employee retention, and professional mobility \citep{mills2011introducing}.
+This introductory text provides a comprehensive overview of survival and event history analysis techniques, explaining that these methods are particularly suited for analyzing categorical sequences of events to model entire event history career trajectories. The book focuses on the order and timing of events rather than gradual changes, making it ideal for studying career transitions, promotions, and job changes. It introduces fundamental concepts such as hazard functions, survival curves, and censoring, while explaining both parametric and non-parametric approaches to survival analysis. The text addresses practical implementation issues, including data preparation, model specification, interpretation of results, and diagnostics. Through illustrative examples, the book demonstrates how these techniques can reveal patterns in career development that might remain hidden with conventional statistical methods, making it an essential resource for researchers studying career trajectories, employee retention, and professional mobility \parencite{mills2011introducing}.
 
 \subsubsection{Mathematical Approach}
 
@@ -75,75 +62,75 @@ For analyzing censored data, the Kaplan-Meier estimator provides a non-parametri
 
 \[S(t) = \prod_{t_i \leq t} \left[1 - \frac{d_i}{n_i}\right]\]
 
-Where \(t_i\) represents the distinct event times, \(d_i\) is the number of events at time \(t_i\), and \(n_i\) is the number of individuals at risk just before \(t_i\) \citep{code2020event}.
+Where \(t_i\) represents the distinct event times, \(d_i\) is the number of events at time \(t_i\), and \(n_i\) is the number of individuals at risk just before \(t_i\) \parencite{code2020event}.
 
 For modeling the effects of covariates, Cox proportional hazards regression is commonly used:
 
 \[h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_p X_p)\]
 
-Where \(h_0(t)\) is the baseline hazard function and \(X_1, X_2, \ldots, X_p\) are the covariates with corresponding coefficients \(\beta_1, \beta_2, \ldots, \beta_p\) \citep{code2020event}.
+Where \(h_0(t)\) is the baseline hazard function and \(X_1, X_2, \ldots, X_p\) are the covariates with corresponding coefficients \(\beta_1, \beta_2, \ldots, \beta_p\) \parencite{code2020event}.
 
 For discrete-time data, logistic regression can be used to model the conditional probability of an event occurring at time \(t\), given survival up to that point:
 
 \[\text{logit}[P(T = t | T \geq t, X)] = \alpha_t + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_p X_p\]
 
-Where \(\alpha_t\) represents the baseline logit-hazard at time \(t\) \citep{allison1982discrete}.
+Where \(\alpha_t\) represents the baseline logit-hazard at time \(t\) \parencite{allison1982discrete}.
 
 For competing risks (multiple types of events, such as different reasons for leaving an organization), the cause-specific hazard function for event type \(k\) is:
 
 \[h_k(t) = \lim_{\Delta t \to 0} \frac{P(t \leq T < t+\Delta t, K = k | T \geq t)}{\Delta t}\]
 
-Where \(K\) denotes the type of event \citep{code2020event}.
+Where \(K\) denotes the type of event \parencite{code2020event}.
 
 \subsubsection{Example Applications}
 
 \subsubsubsection{"An Analysis of Career Trajectories and Occupational Transitions" (U.S. Department of Labor)}
-This comprehensive study by the Department of Labor examines wage growth and occupational transitions over 10-year periods to identify "launchpad" occupations that facilitate career advancement. Using longitudinal panel surveys, the researchers analyze variations in trajectories among workers starting in mid-level occupations, identifying which occupations lead to higher wage growth and better long-term outcomes. The study incorporates both occupational characteristics (skill requirements, licensing) and worker demographics to understand disparities in wage growth among different populations. By tracking actual career paths rather than theoretical possibilities, the research reveals which occupations consistently serve as reliable springboards for career advancement across different sectors and demographic groups. The trajectory analysis methodology allows for the examination of multiple outcomes beyond wage growth, including unemployment periods and educational attainment, providing a holistic view of career development patterns that can inform workforce development strategies and career counseling approaches \citep{dol2023career}.
+This comprehensive study by the Department of Labor examines wage growth and occupational transitions over 10-year periods to identify "launchpad" occupations that facilitate career advancement. Using longitudinal panel surveys, the researchers analyze variations in trajectories among workers starting in mid-level occupations, identifying which occupations lead to higher wage growth and better long-term outcomes. The study incorporates both occupational characteristics (skill requirements, licensing) and worker demographics to understand disparities in wage growth among different populations. By tracking actual career paths rather than theoretical possibilities, the research reveals which occupations consistently serve as reliable springboards for career advancement across different sectors and demographic groups. The trajectory analysis methodology allows for the examination of multiple outcomes beyond wage growth, including unemployment periods and educational attainment, providing a holistic view of career development patterns that can inform workforce development strategies and career counseling approaches \parencite{dol2023career}.
 
 \subsubsubsection{"Attrition and reenlistment in the Army: Using the Tailored Adaptive Personality Assessment System"}
-This military-focused study employs survival analysis to predict attrition and reenlistment among U.S. Army Soldiers, evaluating both cognitive measures (Armed Forces Qualification Test) and non-cognitive assessments (Tailored Adaptive Personality Assessment System, TAPAS). The researchers examine the complete timeline of enlisted Soldiers' first term of service, categorizing attrition by reason for separation (medical/physical, misconduct, performance-related) and analyzing variations in first-term reenlistment across different Military Occupational Specialties. The analysis reveals that attrition associated with medical/physical and performance reasons tends to occur early in Soldiers' careers, while misconduct-related attrition emerges after several months of service. The study demonstrates that personality characteristics as measured by TAPAS contribute incrementally beyond cognitive ability in predicting retention outcomes, with different attrition categories showing distinctive temporal patterns. By modeling attrition over time and across categories, the research provides insights for developing targeted interventions at specific career stages to enhance force readiness and reduce the substantial costs associated with early Soldier attrition \citep{niessen2016attrition}.
+This military-focused study employs survival analysis to predict attrition and reenlistment among U.S. Army Soldiers, evaluating both cognitive measures (Armed Forces Qualification Test) and non-cognitive assessments (Tailored Adaptive Personality Assessment System, TAPAS). The researchers examine the complete timeline of enlisted Soldiers' first term of service, categorizing attrition by reason for separation (medical/physical, misconduct, performance-related) and analyzing variations in first-term reenlistment across different Military Occupational Specialties. The analysis reveals that attrition associated with medical/physical and performance reasons tends to occur early in Soldiers' careers, while misconduct-related attrition emerges after several months of service. The study demonstrates that personality characteristics as measured by TAPAS contribute incrementally beyond cognitive ability in predicting retention outcomes, with different attrition categories showing distinctive temporal patterns. By modeling attrition over time and across categories, the research provides insights for developing targeted interventions at specific career stages to enhance force readiness and reduce the substantial costs associated with early Soldier attrition \parencite{niessen2016attrition}.
 
 \subsubsubsection{"Dynamic work trajectories and their interplay with family over the life course"}
-This innovative study applies event history analysis to examine how work trajectories and family dynamics interact throughout individuals' life courses, capturing the bidirectional relationship between career development and family transitions. The researchers utilize sequence analysis and event history methods to model entire career paths while accounting for critical family events such as marriage, childbirth, and caregiving responsibilities. The study reveals how family-related transitions influence career trajectories differently for men and women, identifying critical junctures where career paths may diverge based on family decisions. By analyzing transitions into the labor market and subsequent career movements in relation to family formation patterns, the research highlights how early career decisions create path dependencies that shape long-term outcomes. The application of survival analysis techniques allows the researchers to quantify the timing and likelihood of career disruptions following family events, providing insights into the complex interplay of work and family that traditional cross-sectional analyses would miss \citep{vidal2023dynamic}.
+This innovative study applies event history analysis to examine how work trajectories and family dynamics interact throughout individuals' life courses, capturing the bidirectional relationship between career development and family transitions. The researchers utilize sequence analysis and event history methods to model entire career paths while accounting for critical family events such as marriage, childbirth, and caregiving responsibilities. The study reveals how family-related transitions influence career trajectories differently for men and women, identifying critical junctures where career paths may diverge based on family decisions. By analyzing transitions into the labor market and subsequent career movements in relation to family formation patterns, the research highlights how early career decisions create path dependencies that shape long-term outcomes. The application of survival analysis techniques allows the researchers to quantify the timing and likelihood of career disruptions following family events, providing insights into the complex interplay of work and family that traditional cross-sectional analyses would miss \parencite{vidal2023dynamic}.
 
 \subsubsubsection{"Predicting employee attrition and explaining its determinants"}
-This cutting-edge study applies machine learning models to real-world data from a prominent Italian financial institution to predict employee attrition and identify its key determinants. The researchers employ survival analysis techniques to model the time until employee departure, incorporating both static factors (demographics, education, personality) and time-varying covariates (performance ratings, compensation changes, role transitions). By formulating attrition prediction as a multi-task learning problem across different time horizons, the study captures both immediate attrition risk and long-term retention patterns. The methodology accounts for competing risks by distinguishing between voluntary departures and involuntary separations, allowing for targeted interventions based on attrition type. The study demonstrates the superiority of this approach over traditional turnover models by capturing the temporal dynamics of attrition risk throughout the employee lifecycle, identifying critical periods when intervention might be most effective. The insights generated help organizations develop proactive retention strategies tailored to specific employee segments and career stages \citep{attrition2025predicting}.
+This cutting-edge study applies machine learning models to real-world data from a prominent Italian financial institution to predict employee attrition and identify its key determinants. The researchers employ survival analysis techniques to model the time until employee departure, incorporating both static factors (demographics, education, personality) and time-varying covariates (performance ratings, compensation changes, role transitions). By formulating attrition prediction as a multi-task learning problem across different time horizons, the study captures both immediate attrition risk and long-term retention patterns. The methodology accounts for competing risks by distinguishing between voluntary departures and involuntary separations, allowing for targeted interventions based on attrition type. The study demonstrates the superiority of this approach over traditional turnover models by capturing the temporal dynamics of attrition risk throughout the employee lifecycle, identifying critical periods when intervention might be most effective. The insights generated help organizations develop proactive retention strategies tailored to specific employee segments and career stages \parencite{attrition2025predicting}.
 
 \subsubsection{Critiques}
 
-Based on the search results, particularly from \citep{limitations2016survival}, there are several significant limitations of using survival analysis/event history analysis for studying retention and attrition patterns:
+Based on the search results, particularly from \parencite{limitations2016survival}, there are several significant limitations of using survival analysis/event history analysis for studying retention and attrition patterns:
 
 \subsubsubsection{Censoring Assumptions}
-The approach requires specific assumptions about censored data that may not reflect reality. This can potentially bias results, especially if censoring is related to the likelihood of experiencing the event (informative censoring) \citep{limitations2016survival}.
+The approach requires specific assumptions about censored data that may not reflect reality. This can potentially bias results, especially if censoring is related to the likelihood of experiencing the event (informative censoring) \parencite{limitations2016survival}.
 
 \subsubsubsection{Complexity for Non-Statisticians}
-The interpretation and implementation of survival analysis can be difficult for practitioners without specialized statistical knowledge, limiting its practical application in organizational settings \citep{limitations2016survival}.
+The interpretation and implementation of survival analysis can be difficult for practitioners without specialized statistical knowledge, limiting its practical application in organizational settings \parencite{limitations2016survival}.
 
 \subsubsubsection{Modeling of Time-Dependent Covariates}
-Incorporating variables that change over time (such as job satisfaction or compensation) can be methodologically complex and may lead to model misspecification if not handled properly \citep{limitations2016survival}.
+Incorporating variables that change over time (such as job satisfaction or compensation) can be methodologically complex and may lead to model misspecification if not handled properly \parencite{limitations2016survival}.
 
 \subsubsubsection{High Variability with Small Sample Sizes}
-Estimates can be unstable with small numbers of events or a high censoring rate, which is particularly problematic when studying rare events or specific subgroups \citep{limitations2016survival}.
+Estimates can be unstable with small numbers of events or a high censoring rate, which is particularly problematic when studying rare events or specific subgroups \parencite{limitations2016survival}.
 
 \subsubsubsection{Assumption of Independent Censoring}
-The approach assumes that censoring is unrelated to prognosis, which may not always be true in organizational settings \citep{limitations2016survival}.
+The approach assumes that censoring is unrelated to prognosis, which may not always be true in organizational settings \parencite{limitations2016survival}.
 
 \subsubsubsection{Competing Risks Challenges}
-Standard methods do not adequately account for competing risks (different types of departures), which can lead to biased risk estimates \citep{limitations2016survival}.
+Standard methods do not adequately account for competing risks (different types of departures), which can lead to biased risk estimates \parencite{limitations2016survival}.
 
 \subsubsubsection{Data Requirements}
-The method requires high-quality, complete longitudinal data over follow-up periods, which can be difficult and expensive to obtain. As noted by Maas, "Not only information on all jobs, but also on the timing of the transition from one job to the other is necessary" \citep{maas2003use}.
+The method requires high-quality, complete longitudinal data over follow-up periods, which can be difficult and expensive to obtain. As noted by Maas, "Not only information on all jobs, but also on the timing of the transition from one job to the other is necessary" \parencite{maas2003use}.
 
 \subsubsubsection{Proportional Hazards Assumption}
-The commonly used Cox proportional hazards model assumes that the effect of predictors remains constant over time, which may not hold for many career-related factors \citep{limitations2016survival}.
+The commonly used Cox proportional hazards model assumes that the effect of predictors remains constant over time, which may not hold for many career-related factors \parencite{limitations2016survival}.
 
 \subsubsection{Software}
 
 \subsubsubsection{R "survival" package}
-The "survival" package is the foundation of survival analysis in R, maintained by Terry Therneau of the Mayo Clinic, and serves as the backbone for most survival analysis functions in the R ecosystem. It provides comprehensive implementations of essential survival analysis methods including Kaplan-Meier survival curves, Cox proportional hazards models, parametric survival models, competing risks analysis, and methods for handling time-dependent covariates. The package includes robust functions for visualizing survival data through various plotting methods, conducting hypothesis tests to compare survival curves across groups, and implementing diagnostics to assess model assumptions. With its extensive documentation and long development history (spanning over two decades), the survival package offers both basic functionality for beginners and advanced options for complex survival modeling scenarios. Its integration with other R packages extends its capabilities, making it ideal for comprehensive retention and attrition studies across various organizational contexts \citep{therneau2023survival}.
+The "survival" package is the foundation of survival analysis in R, maintained by Terry Therneau of the Mayo Clinic, and serves as the backbone for most survival analysis functions in the R ecosystem. It provides comprehensive implementations of essential survival analysis methods including Kaplan-Meier survival curves, Cox proportional hazards models, parametric survival models, competing risks analysis, and methods for handling time-dependent covariates. The package includes robust functions for visualizing survival data through various plotting methods, conducting hypothesis tests to compare survival curves across groups, and implementing diagnostics to assess model assumptions. With its extensive documentation and long development history (spanning over two decades), the survival package offers both basic functionality for beginners and advanced options for complex survival modeling scenarios. Its integration with other R packages extends its capabilities, making it ideal for comprehensive retention and attrition studies across various organizational contexts \parencite{therneau2023survival}.
 
 \subsubsubsection{Python "lifelines" library}
-The "lifelines" library is Python's premier survival analysis package, providing a complete suite of tools for modeling and analyzing time-to-event data with an intuitive, scikit-learn inspired API that makes it accessible to data scientists already familiar with Python's data science ecosystem. The library implements core survival analysis techniques including Kaplan-Meier estimators, Cox Proportional Hazards models, Aalen's Additive model, and various parametric models (Weibull, exponential, log-normal, log-logistic), all optimized for performance with large datasets common in modern retention analysis. It features robust handling of left, right, and interval censored data, comprehensive visualization tools for survival curves and hazard functions, and built-in statistical tests for comparing survival distributions between groups. The package includes model selection tools, residual analysis functions for checking assumptions, and methods for determining variable importance, making it particularly valuable for predictive modeling of employee attrition. Lifelines' extensive documentation, tutorials, and integration with the broader Python data science ecosystem (pandas, numpy, matplotlib) make it an excellent choice for organizations using Python for their data analytics infrastructure \citep{lifelines2023documentation}.
+The "lifelines" library is Python's premier survival analysis package, providing a complete suite of tools for modeling and analyzing time-to-event data with an intuitive, scikit-learn inspired API that makes it accessible to data scientists already familiar with Python's data science ecosystem. The library implements core survival analysis techniques including Kaplan-Meier estimators, Cox Proportional Hazards models, Aalen's Additive model, and various parametric models (Weibull, exponential, log-normal, log-logistic), all optimized for performance with large datasets common in modern retention analysis. It features robust handling of left, right, and interval censored data, comprehensive visualization tools for survival curves and hazard functions, and built-in statistical tests for comparing survival distributions between groups. The package includes model selection tools, residual analysis functions for checking assumptions, and methods for determining variable importance, making it particularly valuable for predictive modeling of employee attrition. Lifelines' extensive documentation, tutorials, and integration with the broader Python data science ecosystem (pandas, numpy, matplotlib) make it an excellent choice for organizations using Python for their data analytics infrastructure \parencite{lifelines2023documentation}.
 
 \subsubsubsection{SAS Survival Analysis Procedures}
 SAS offers comprehensive survival analysis capabilities through procedures like PROC LIFETEST, PROC PHREG, and PROC ICPHREG, making it a powerful tool for retention and attrition analysis in large organizations and research institutions with existing SAS infrastructure. The software provides exceptional handling of complex survey designs, robust procedures for competing risks analysis, and sophisticated methods for dealing with time-dependent covariates that are crucial for modeling dynamic aspects of career trajectories. SAS's superior performance with extremely large datasets makes it particularly valuable for enterprise-level workforce analyses spanning thousands of employees over long time periods. The software includes extensive diagnostics for assessing proportional hazards assumptions, identifying influential observations, and checking functional forms of continuous predictors. While requiring a commercial license and specialized programming knowledge, SAS remains the gold standard in many industries for its validated statistical procedures, regulatory acceptance, and integration with broader enterprise data systems, making it particularly valuable for regulated industries where methodological reliability is paramount.
@@ -250,85 +237,6 @@ The findings could have several significant implications for Army talent managem
 
 This study design would provide the Army with unprecedented insights into officer career trajectories across different branches, allowing for more strategic, evidence-based approaches to talent management and retention.
 
-\bibliographystyle{plainnat}
-\bibliography{references}
-
-\begin{thebibliography}{40}
-
-\bibitem[Allison, 1982]{allison1982discrete}
-Allison, P.D. (1982).
-\newblock Discrete-time methods for the analysis of event histories.
-\newblock \emph{Sociological Methodology}, 13, 61--98.
-
-\bibitem[Attrition, 2025]{attrition2025predicting}
-Attrition Research Group (2025).
-\newblock Predicting employee attrition and explaining its determinants.
-\newblock \emph{Expert Systems with Applications}, 240, 122456.
-
-\bibitem[Code Horizons, 2020]{code2020event}
-Code Horizons (2020).
-\newblock Event history/survival analysis.
-\newblock Technical report, Code Horizons Statistical Consulting.
-
-\bibitem[Department of Labor, 2023]{dol2023career}
-Department of Labor (2023).
-\newblock An analysis of career trajectories and occupational transitions.
-\newblock Technical report, U.S. Department of Labor, Office of the Assistant Secretary for Policy.
-
-\bibitem[Gartner, 2023]{gartner2023career}
-Gartner (2023).
-\newblock Lack of career development drives employee attrition.
-\newblock \emph{Gartner Research Report}.
-
-\bibitem[Li et al., 2016]{li2016prospecting}
-Li, H., Ge, Y., Zhu, H., Xiong, H., and Zhao, H. (2016).
-\newblock Prospecting the career development of talents: A survival analysis perspective.
-\newblock In \emph{Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}, pages 1715--1724.
-
-\bibitem[Lifelines, 2023]{lifelines2023documentation}
-Lifelines Development Team (2023).
-\newblock Lifelines: Survival analysis in python.
-\newblock Software documentation, version 0.30.0.
-
-\bibitem[Limitations, 2016]{limitations2016survival}
-Cross Validated Community (2016).
-\newblock Limitations of survival analysis.
-\newblock \emph{Cross Validated Statistics Forum Discussion}.
-
-\bibitem[Maas, 2003]{maas2003use}
-Maas, I. (2003).
-\newblock The use of event-history-analysis in career research.
-\newblock In \emph{Modern Career Research}, pages 45--68. International Institute of Social History.
-
-\bibitem[Mills, 2011]{mills2011introducing}
-Mills, M. (2011).
-\newblock \emph{Introducing survival and event history analysis}.
-\newblock Sage Publications.
-
-\bibitem[Niessen et al., 2016]{niessen2016attrition}
-Niessen, A.S., Meijer, R.R., and Tendeiro, J.N. (2016).
-\newblock Attrition and reenlistment in the army: Using the tailored adaptive personality assessment system.
-\newblock \emph{Military Psychology}, 28(4), 224--236.
-
-\bibitem[Sull et al., 2022]{sull2022toxic}
-Sull, D., Sull, C., and Bersin, J. (2022).
-\newblock Toxic culture is driving the great resignation.
-\newblock \emph{MIT Sloan Management Review}, 63(2), 1--9.
-
-\bibitem[Therneau, 2023]{therneau2023survival}
-Therneau, T.M. (2023).
-\newblock A package for survival analysis in r.
-\newblock R package version 3.5-5.
-
-\bibitem[Vidal et al., 2023]{vidal2023dynamic}
-Vidal, S., Lutz, K., and Becker, B. (2023).
-\newblock Dynamic work trajectories and their interplay with family over the life course.
-\newblock \emph{Advances in Life Course Research}, 55, 100512.
-
-\end{thebibliography}
+%\printbibliography
 
 \end{document}
-```
-
-Sources
-[1] retention_and_attrition_patterns.md https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/29503869/8cded723-d990-4050-86ba-36111b221b6d/retention_and_attrition_patterns.md

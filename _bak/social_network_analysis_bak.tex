@@ -1,22 +1,35 @@
 \documentclass[../main.tex]{subfiles}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{subfiles}
+
 \begin{document}
 
 Social Network Analysis (SNA) provides powerful analytical tools for understanding the complex patterns that shape career paths. By mapping the interconnections between individuals, positions, and organizations, researchers can gain valuable insights into career mobility, identify influential factors in professional development, and understand the structural aspects of career trajectories. This report examines SNA methodology specifically in the context of analyzing career paths, including its theoretical foundations, practical applications, limitations, and implementation strategies.
 
 \subsubsection{Approach Description \& Goal}
 
-Social Network Analysis is a methodological approach that investigates social structures through the application of network and graph theory principles. SNA characterizes systems as networks composed of nodes (individual actors, positions, or organizations) and the ties or edges (relationships or interactions) that connect them \parencite{wikipedia_sna}. When applied to career trajectory analysis, SNA transforms individual work histories into structured networks that reveal patterns of job transitions, professional relationships, and career mobility pathways that might otherwise remain hidden in conventional analyses.
+Social Network Analysis is a methodological approach that investigates social structures through the application of network and graph theory principles. SNA characterizes systems as networks composed of nodes (individual actors, positions, or organizations) and the ties or edges (relationships or interactions) that connect them \citep{wikipedia_sna}. When applied to career trajectory analysis, SNA transforms individual work histories into structured networks that reveal patterns of job transitions, professional relationships, and career mobility pathways that might otherwise remain hidden in conventional analyses.
 
-The primary goals of SNA in career research include: identifying common career pathways within professions; understanding how relationships facilitate career advancement; recognizing "gateway" positions that enable access to higher-level roles; quantifying career mobility potential across different entry points; and developing evidence-based career guidance by mapping the universe of likely career paths available from specific starting positions \parencite{clochard_network_2022}. By visualizing and analyzing career networks, researchers can identify structural barriers to advancement, discover high-potential career paths, and uncover the relationships between skills acquisition and career mobility across different demographic groups.
+The primary goals of SNA in career research include: identifying common career pathways within professions; understanding how relationships facilitate career advancement; recognizing "gateway" positions that enable access to higher-level roles; quantifying career mobility potential across different entry points; and developing evidence-based career guidance by mapping the universe of likely career paths available from specific starting positions \citep{clochard_network_2022}. By visualizing and analyzing career networks, researchers can identify structural barriers to advancement, discover high-potential career paths, and uncover the relationships between skills acquisition and career mobility across different demographic groups.
 
 \subsubsection{Critical Variables}
 
 Social Network Analysis of career trajectories typically incorporates several categories of variables:
 
 \subsubsubsection{Network Structure Variables}
-\textbf{Nodes/Vertices}: Representing individuals, job positions, occupations, or organizations \parencite{wikipedia_sna}
+\textbf{Nodes/Vertices}: Representing individuals, job positions, occupations, or organizations \citep{wikipedia_sna}
 
-\textbf{Edges/Ties}: Representing job transitions, mentoring relationships, collaborations, or other professional connections between nodes \parencite{wikipedia_sna}
+\textbf{Edges/Ties}: Representing job transitions, mentoring relationships, collaborations, or other professional connections between nodes \citep{wikipedia_sna}
 
 \textbf{Network Density}: The proportion of potential connections that are actually present in the network
 
@@ -38,7 +51,7 @@ Social Network Analysis of career trajectories typically incorporates several ca
 
 \textbf{Temporal Data}: When transitions or relationships occurred
 
-\textbf{Transition Type}: Lateral moves, promotions, demotions, or cross-industry shifts \parencite{indeed_career_trajectory}
+\textbf{Transition Type}: Lateral moves, promotions, demotions, or cross-industry shifts \citep{indeed_career_trajectory}
 
 \subsubsubsection{Centrality Measures}
 \textbf{Degree Centrality}: Number of direct connections a node has
@@ -47,30 +60,30 @@ Social Network Analysis of career trajectories typically incorporates several ca
 
 \textbf{Closeness Centrality}: Average distance from a node to all other nodes
 
-\textbf{Eigenvector Centrality}: Measure of influence based on connections to other influential nodes \parencite{cambridge_intelligence_centrality}
+\textbf{Eigenvector Centrality}: Measure of influence based on connections to other influential nodes \citep{cambridge_intelligence_centrality}
 
 \subsubsubsection{Mobility Indicators}
 \textbf{Career Velocity}: Rate of upward movement through positions
 
 \textbf{Path Diversity}: Number of distinct career pathways identified
 
-\textbf{Structural Holes}: Gaps between different career clusters that may represent barriers or opportunities \parencite{visible_network_labs}
+\textbf{Structural Holes}: Gaps between different career clusters that may represent barriers or opportunities \citep{visible_network_labs}
 
-\textbf{Social Networking Potential (SNP)}: A numeric coefficient representing both network size and influence capacity \parencite{wikipedia_sna}
+\textbf{Social Networking Potential (SNP)}: A numeric coefficient representing both network size and influence capacity \citep{wikipedia_sna}
 
 \subsubsection{Key Overviews}
 
-\textbf{Wasserman and Faust (1994) "Social Network Analysis: Methods and Applications"} represents a foundational text in the field of social network analysis. The authors provide comprehensive coverage of SNA methodology, starting with basic concepts and progressing to advanced analytical techniques. The book systematically addresses network data collection, representation through matrices and graphs, measurement of centrality and prestige, identification of cohesive subgroups, structural equivalence, blockmodels, and statistical analysis of social networks. Particularly valuable are the chapters on dyadic and triadic analysis, which help researchers understand the building blocks of larger network structures. The authors also include numerous practical examples and applications across various disciplines, making this text essential reading for understanding the theoretical foundations and methodological approach of SNA \parencite{wasserman_faust_archive,butts_methodological_2008}.
+\textbf{Wasserman and Faust (1994) "Social Network Analysis: Methods and Applications"} represents a foundational text in the field of social network analysis. The authors provide comprehensive coverage of SNA methodology, starting with basic concepts and progressing to advanced analytical techniques. The book systematically addresses network data collection, representation through matrices and graphs, measurement of centrality and prestige, identification of cohesive subgroups, structural equivalence, blockmodels, and statistical analysis of social networks. Particularly valuable are the chapters on dyadic and triadic analysis, which help researchers understand the building blocks of larger network structures. The authors also include numerous practical examples and applications across various disciplines, making this text essential reading for understanding the theoretical foundations and methodological approach of SNA \citep{wasserman_faust_archive, butts_methodological_2008}.
 
-\textbf{"Social Network Analysis 101: Ultimate Guide" (2023) by Visible Network Labs} provides an accessible introduction to SNA concepts and applications. The guide covers the theoretical background of SNA, including the "Strength of Weak Ties Theory," which posits that weaker connections often provide more novel information and resources compared to strong ties. It also explores the "Structural Hole Theory," which explains how individuals bridging gaps between different groups in a network gain strategic advantages in controlling information and resource flows. This resource serves as an excellent entry point for those new to network analysis, offering practical explanations of complex network concepts and their applications in understanding social and professional relationships \parencite{visible_network_labs}.
+\textbf{"Social Network Analysis 101: Ultimate Guide" (2023) by Visible Network Labs} provides an accessible introduction to SNA concepts and applications. The guide covers the theoretical background of SNA, including the "Strength of Weak Ties Theory," which posits that weaker connections often provide more novel information and resources compared to strong ties. It also explores the "Structural Hole Theory," which explains how individuals bridging gaps between different groups in a network gain strategic advantages in controlling information and resource flows. This resource serves as an excellent entry point for those new to network analysis, offering practical explanations of complex network concepts and their applications in understanding social and professional relationships \citep{visible_network_labs}.
 
-\textbf{"Social Network Analysis: Understanding Centrality Measures" (2020) by Cambridge Intelligence} offers a focused examination of network centrality concepts, which are critical metrics for identifying influential positions in career networks. The article explains different centrality measures—degree, betweenness, closeness, eigenvector centrality, and PageRank—and their interpretations in social contexts. Understanding these measures is particularly important for career trajectory analysis, as they help identify pivotal roles that serve as gateways to career advancement or positions that offer greater access to information and resources. The article presents these complex mathematical concepts in an accessible manner, making it valuable for researchers seeking to apply appropriate centrality measures in their career network analyses \parencite{cambridge_intelligence_centrality}.
+\textbf{"Social Network Analysis: Understanding Centrality Measures" (2020) by Cambridge Intelligence} offers a focused examination of network centrality concepts, which are critical metrics for identifying influential positions in career networks. The article explains different centrality measures—degree, betweenness, closeness, eigenvector centrality, and PageRank—and their interpretations in social contexts. Understanding these measures is particularly important for career trajectory analysis, as they help identify pivotal roles that serve as gateways to career advancement or positions that offer greater access to information and resources. The article presents these complex mathematical concepts in an accessible manner, making it valuable for researchers seeking to apply appropriate centrality measures in their career network analyses \citep{cambridge_intelligence_centrality}.
 
-\textbf{"Social Network Analysis: A Methodological Introduction" (2008) by Carter T. Butts} provides a comprehensive overview of SNA methodology with particular attention to the mathematical foundations and practical applications. The article covers network representation, centrality concepts, local network structures, and dyadic and triadic analysis. Butts explains the theoretical underpinnings of SNA while connecting them to practical research applications across multiple disciplines. The paper serves as a bridge between theoretical concepts and applied research, offering guidance on methodological decisions in network analysis. The author's discussion of statistical approaches to network data is particularly valuable for researchers looking to move beyond descriptive analysis to inferential testing in career trajectory studies \parencite{butts_methodological_2008}.
+\textbf{"Social Network Analysis: A Methodological Introduction" (2008) by Carter T. Butts} provides a comprehensive overview of SNA methodology with particular attention to the mathematical foundations and practical applications. The article covers network representation, centrality concepts, local network structures, and dyadic and triadic analysis. Butts explains the theoretical underpinnings of SNA while connecting them to practical research applications across multiple disciplines. The paper serves as a bridge between theoretical concepts and applied research, offering guidance on methodological decisions in network analysis. The author's discussion of statistical approaches to network data is particularly valuable for researchers looking to move beyond descriptive analysis to inferential testing in career trajectory studies \citep{butts_methodological_2008}.
 
 \subsubsection{Mathematical Approach}
 
-Social Network Analysis employs graph theory as its mathematical foundation, representing relationships as mathematical structures composed of nodes (vertices) and edges. In career trajectory analysis, this approach allows researchers to quantify and analyze patterns of movement between positions \parencite{wikipedia_sna}.
+Social Network Analysis employs graph theory as its mathematical foundation, representing relationships as mathematical structures composed of nodes (vertices) and edges. In career trajectory analysis, this approach allows researchers to quantify and analyze patterns of movement between positions \citep{wikipedia_sna}.
 
 \subsubsubsection{Basic Network Representation}
 
@@ -82,7 +95,7 @@ A network is formally represented as a graph \(G = (V, E)\), where:
 
 Networks can be undirected (edges have no direction) or directed (edges have direction, as in career progressions). In matrix form, networks are typically represented as adjacency matrices where:
 
-\[ A_{ij} = \begin{cases} 
+\[ A_{ij} = \begin{cases} 
 1 & \text{if there is an edge from node } i \text{ to node } j \\
 0 & \text{otherwise}
 \end{cases} \]
@@ -93,7 +106,7 @@ For weighted networks (where ties have varying strengths, such as frequency of t
 
 \subsubsubsection{Centrality Measures}
 
-Several mathematical formulas quantify the importance of nodes in a network \parencite{cambridge_intelligence_centrality}:
+Several mathematical formulas quantify the importance of nodes in a network \citep{cambridge_intelligence_centrality}:
 
 \paragraph{Degree Centrality} For a node \(i\) in an undirected graph, degree centrality is:
 \[ C_D(i) = \sum_{j \in V} A_{ij} \]
@@ -139,18 +152,18 @@ For analyzing career progressions over time, researchers use temporal network me
 \begin{itemize}
 \item Sequence analysis to identify typical career patterns
 \item Transition probability matrices to quantify the likelihood of moving between positions
-\item Career velocity metrics to measure the rate of progression through hierarchical levels \parencite{clochard_network_2022}
+\item Career velocity metrics to measure the rate of progression through hierarchical levels \citep{clochard_network_2022}
 \end{itemize}
 
 \subsubsection{Example Applications}
 
-\textbf{"Using Network Analysis of Job Transitions to Inform Career Advice" (2022) by Axelle Clochard} applies SNA to study career mobility patterns using U.S. job transitions data. Clochard constructs a network where nodes represent occupations and edges represent significant flows of workers between jobs. The research focuses on identifying career paths from entry-level or precarious occupations that lead to stable, high-wage employment. The study reveals that although opportunities exist for workers with various educational backgrounds, upward mobility prospects are generally limited for workers without a bachelor's degree. Low-wage or shrinking occupations typically offer restricted access to stable, high-wage employment. However, the analysis also identifies "bright spot" occupations that provide reliable pathways to sustainable employment even for workers starting in lower-wage positions. The research demonstrates how network analysis can inform evidence-based career guidance by mapping the likely universe of career paths available from specific starting points \parencite{clochard_network_2022}.
+\textbf{"Using Network Analysis of Job Transitions to Inform Career Advice" (2022) by Axelle Clochard} applies SNA to study career mobility patterns using U.S. job transitions data. Clochard constructs a network where nodes represent occupations and edges represent significant flows of workers between jobs. The research focuses on identifying career paths from entry-level or precarious occupations that lead to stable, high-wage employment. The study reveals that although opportunities exist for workers with various educational backgrounds, upward mobility prospects are generally limited for workers without a bachelor's degree. Low-wage or shrinking occupations typically offer restricted access to stable, high-wage employment. However, the analysis also identifies "bright spot" occupations that provide reliable pathways to sustainable employment even for workers starting in lower-wage positions. The research demonstrates how network analysis can inform evidence-based career guidance by mapping the likely universe of career paths available from specific starting points \citep{clochard_network_2022}.
 
-\textbf{"The Road Less Traveled: Analyzing the Career Paths of Women Athletic Directors Utilizing Social Network Analysis" (2025) by Motley, Jensen, Weight, and Bates} employs SNA to analyze career paths of NCAA Division I women athletic directors (ADs) and build a hiring network within intercollegiate athletics. The researchers tracked career changes of current Division I women ADs to identify influential institutions and compare career trajectories between women and men ADs. Their findings reveal that women ADs typically navigate longer career paths within a much sparser network compared to their male counterparts. Women who successfully attained AD positions generally advanced through various positions in college athletics, with certain "hub" institutions serving as accelerators for their careers. The study also found that institutional authorities often hired women at higher positions, frequently at senior executive levels, before they became ADs. This application demonstrates how SNA can illuminate gender differences in career progression and identify influential organizations that serve as critical stepping stones for advancement in specific professional fields \parencite{motley_women_ad}.
+\textbf{"The Road Less Traveled: Analyzing the Career Paths of Women Athletic Directors Utilizing Social Network Analysis" (2025) by Motley, Jensen, Weight, and Bates} employs SNA to analyze career paths of NCAA Division I women athletic directors (ADs) and build a hiring network within intercollegiate athletics. The researchers tracked career changes of current Division I women ADs to identify influential institutions and compare career trajectories between women and men ADs. Their findings reveal that women ADs typically navigate longer career paths within a much sparser network compared to their male counterparts. Women who successfully attained AD positions generally advanced through various positions in college athletics, with certain "hub" institutions serving as accelerators for their careers. The study also found that institutional authorities often hired women at higher positions, frequently at senior executive levels, before they became ADs. This application demonstrates how SNA can illuminate gender differences in career progression and identify influential organizations that serve as critical stepping stones for advancement in specific professional fields \citep{motley_women_ad}.
 
-\textbf{"Using social network analysis to track career trajectories of women STEM faculty" (2019) by Erin McCullagh et al.} applies SNA to investigate co-authorship networks among STEM faculty, with particular focus on understanding the career paths of women in academia. The researchers mapped faculty publication networks to visualize collaboration patterns and identify influential positions and connections. For individuals, these network maps function as a "GPS system for career navigation," showing faculty members their network positions relative to others and helping them strategize future career moves. The study reveals how network mapping can help faculty identify potential collaborators, understand how to strengthen their academic position, and recognize the impact of their collaboration choices on career trajectories. The research demonstrates the value of SNA in identifying both structural barriers and opportunities for career advancement in academic settings, particularly for underrepresented groups like women in STEM fields \parencite{mccullagh_women_stem}.
+\textbf{"Using social network analysis to track career trajectories of women STEM faculty" (2019) by Erin McCullagh et al.} applies SNA to investigate co-authorship networks among STEM faculty, with particular focus on understanding the career paths of women in academia. The researchers mapped faculty publication networks to visualize collaboration patterns and identify influential positions and connections. For individuals, these network maps function as a "GPS system for career navigation," showing faculty members their network positions relative to others and helping them strategize future career moves. The study reveals how network mapping can help faculty identify potential collaborators, understand how to strengthen their academic position, and recognize the impact of their collaboration choices on career trajectories. The research demonstrates the value of SNA in identifying both structural barriers and opportunities for career advancement in academic settings, particularly for underrepresented groups like women in STEM fields \citep{mccullagh_women_stem}.
 
-\textbf{"Hidden patterns: Using social network analysis to track career trajectories of women STEM faculty" (2019)} applies SNA to investigate the career progression of women faculty in Science, Technology, Engineering, and Mathematics (STEM) disciplines. The researchers used co-authorship networks as proxies for professional relationships and collaboration opportunities, analyzing how these networks influenced career advancement for women academics. The study found that women faculty in STEM fields often have different network structures compared to their male counterparts, with potential implications for promotion, tenure, and research opportunities. By examining publication patterns and collaboration networks, the researchers were able to identify specific structural challenges facing women in academic STEM careers. The study demonstrates how SNA can reveal hidden patterns of gender inequality embedded in professional relationships and suggests interventions to create more equitable academic environments \parencite{mccullagh_hidden_patterns}.
+\textbf{"Hidden patterns: Using social network analysis to track career trajectories of women STEM faculty" (2019)} applies SNA to investigate the career progression of women faculty in Science, Technology, Engineering, and Mathematics (STEM) disciplines. The researchers used co-authorship networks as proxies for professional relationships and collaboration opportunities, analyzing how these networks influenced career advancement for women academics. The study found that women faculty in STEM fields often have different network structures compared to their male counterparts, with potential implications for promotion, tenure, and research opportunities. By examining publication patterns and collaboration networks, the researchers were able to identify specific structural challenges facing women in academic STEM careers. The study demonstrates how SNA can reveal hidden patterns of gender inequality embedded in professional relationships and suggests interventions to create more equitable academic environments \citep{mccullagh_hidden_patterns}.
 
 \subsubsection{Critiques}
 
@@ -158,33 +171,33 @@ Despite its analytical power, Social Network Analysis has several limitations wh
 
 \subsubsubsection{Methodological Limitations}
 
-SNA often sacrifices the rich longitudinal structure of individual career histories to identify broader patterns. While this trade-off enables the discovery of structural trends, it may obscure important details of personal career development. As noted in Clochard's research, "the twin forces of personal preference and structural constraints would have made it difficult to extrapolate any kind of general trend from individual career trajectories," yet these individual variations matter significantly in real career outcomes \parencite{clochard_network_2022}.
+SNA often sacrifices the rich longitudinal structure of individual career histories to identify broader patterns. While this trade-off enables the discovery of structural trends, it may obscure important details of personal career development. As noted in Clochard's research, "the twin forces of personal preference and structural constraints would have made it difficult to extrapolate any kind of general trend from individual career trajectories," yet these individual variations matter significantly in real career outcomes \citep{clochard_network_2022}.
 
 \subsubsubsection{Boundary Specification Problems}
 
-Defining network boundaries appropriately presents significant challenges in career trajectory analysis. Researchers must make critical decisions about which actors to include or exclude and how to demarcate system boundaries. These decisions can significantly impact findings, potentially excluding important influences from outside the defined network. As Wasserman and Faust note, boundary specification and sampling decisions are fundamental methodological challenges in network analysis \parencite{wasserman_faust_archive}.
+Defining network boundaries appropriately presents significant challenges in career trajectory analysis. Researchers must make critical decisions about which actors to include or exclude and how to demarcate system boundaries. These decisions can significantly impact findings, potentially excluding important influences from outside the defined network. As Wasserman and Faust note, boundary specification and sampling decisions are fundamental methodological challenges in network analysis \citep{wasserman_faust_archive}.
 
 \subsubsubsection{Data Quality and Availability Concerns}
 
-SNA requires comprehensive data about relationships, which may be difficult to obtain accurately. Career transition data often comes from resumes, professional networks, or surveys, all of which have inherent biases and reliability issues. Records may be incomplete, subject to recall bias, or systematically missing certain types of transitions. Moreover, as noted by Clochard, different data sources (like resumes versus government surveys) may capture different populations and transition patterns \parencite{clochard_network_2022}.
+SNA requires comprehensive data about relationships, which may be difficult to obtain accurately. Career transition data often comes from resumes, professional networks, or surveys, all of which have inherent biases and reliability issues. Records may be incomplete, subject to recall bias, or systematically missing certain types of transitions. Moreover, as noted by Clochard, different data sources (like resumes versus government surveys) may capture different populations and transition patterns \citep{clochard_network_2022}.
 
 \subsubsubsection{Causality Attribution Problems}
 
-While SNA effectively reveals patterns and correlations in career paths, it often struggles to establish causality. The identification of common pathways does not necessarily explain why these paths exist or what individual factors lead to successful transitions. This limitation makes it challenging to develop prescriptive career advice based solely on network patterns without complementary qualitative or experimental research \parencite{mccullagh_hidden_patterns,clochard_network_2022}.
+While SNA effectively reveals patterns and correlations in career paths, it often struggles to establish causality. The identification of common pathways does not necessarily explain why these paths exist or what individual factors lead to successful transitions. This limitation makes it challenging to develop prescriptive career advice based solely on network patterns without complementary qualitative or experimental research \citep{mccullagh_hidden_patterns, clochard_network_2022}.
 
 \subsubsubsection{Static Representation of Dynamic Processes}
 
-Traditional SNA methods often provide static snapshots of networks, which may inadequately capture the dynamic nature of career development over time. Although temporal network analysis techniques exist, they remain less developed than static approaches. This limitation is particularly problematic for understanding how career networks evolve and how timing affects career transitions \parencite{wikipedia_sna}.
+Traditional SNA methods often provide static snapshots of networks, which may inadequately capture the dynamic nature of career development over time. Although temporal network analysis techniques exist, they remain less developed than static approaches. This limitation is particularly problematic for understanding how career networks evolve and how timing affects career transitions \citep{wikipedia_sna}.
 
 \subsubsubsection{Homophily and Selection Effects}
 
-Networks often display homophily (the tendency to associate with similar others), which can make it difficult to distinguish between selection effects and genuine influence in career patterns. In career trajectory analysis, this manifests as uncertainty about whether certain career paths result from institutional structures, skill requirements, or social sorting processes based on demographic characteristics \parencite{insna}.
+Networks often display homophily (the tendency to associate with similar others), which can make it difficult to distinguish between selection effects and genuine influence in career patterns. In career trajectory analysis, this manifests as uncertainty about whether certain career paths result from institutional structures, skill requirements, or social sorting processes based on demographic characteristics \citep{insna}.
 
 \subsubsection{Software}
 
 \subsubsubsection{UCINET}
 
-UCINET is one of the most comprehensive and widely used software packages for social network analysis, developed by Analytic Technologies. It provides tools for matrix algebra, multivariate statistics, and graph theory specifically designed for analyzing social network data. UCINET includes functionality for calculating various centrality measures, identifying subgroups, performing role and positional analysis, and statistical testing of network hypotheses. The software can handle networks with thousands of nodes and includes routines for QAP regression, blockmodeling, and multidimensional scaling. For career trajectory analysis, UCINET offers valuable tools for identifying structural patterns in job transition networks and quantifying the positional importance of specific roles. The software is available as a 60-day free trial and includes the NetDraw visualization tool, making it particularly suitable for researchers new to SNA who need a comprehensive analysis platform \parencite{butts_methodological_2008}.
+UCINET is one of the most comprehensive and widely used software packages for social network analysis, developed by Analytic Technologies. It provides tools for matrix algebra, multivariate statistics, and graph theory specifically designed for analyzing social network data. UCINET includes functionality for calculating various centrality measures, identifying subgroups, performing role and positional analysis, and statistical testing of network hypotheses. The software can handle networks with thousands of nodes and includes routines for QAP regression, blockmodeling, and multidimensional scaling. For career trajectory analysis, UCINET offers valuable tools for identifying structural patterns in job transition networks and quantifying the positional importance of specific roles. The software is available as a 60-day free trial and includes the NetDraw visualization tool, making it particularly suitable for researchers new to SNA who need a comprehensive analysis platform \citep{butts_methodological_2008}.
 
 \subsubsubsection{NetworkX}
 
@@ -204,7 +217,7 @@ Gephi is an open-source network visualization and exploration platform designed 
 
 \subsubsubsection{Pajek}
 
-Pajek is specialized software designed specifically for analysis and visualization of large networks. Its name means "spider" in Slovenian, reflecting its focus on web-like network structures. Pajek is particularly effective for handling very large networks (with millions of nodes) that might be computationally challenging for other software. The program includes implementations of various decomposition, clustering, and blockmodeling algorithms that are valuable for identifying structural patterns in career networks. For career trajectory analysis, Pajek's partitioning capabilities allow researchers to identify hierarchical structures and career clusters efficiently. The software is free for non-commercial use and has a dedicated user community, particularly in academia. While its interface may appear less modern than some alternatives, Pajek remains a powerful tool for researchers dealing with extremely large career networks or those requiring specialized network decomposition techniques \parencite{butts_methodological_2008}.
+Pajek is specialized software designed specifically for analysis and visualization of large networks. Its name means "spider" in Slovenian, reflecting its focus on web-like network structures. Pajek is particularly effective for handling very large networks (with millions of nodes) that might be computationally challenging for other software. The program includes implementations of various decomposition, clustering, and blockmodeling algorithms that are valuable for identifying structural patterns in career networks. For career trajectory analysis, Pajek's partitioning capabilities allow researchers to identify hierarchical structures and career clusters efficiently. The software is free for non-commercial use and has a dedicated user community, particularly in academia. While its interface may appear less modern than some alternatives, Pajek remains a powerful tool for researchers dealing with extremely large career networks or those requiring specialized network decomposition techniques \citep{butts_methodological_2008}.
 
 \subsubsection{Example Study Design}
 
@@ -332,6 +345,44 @@ The findings from this SNA study could have significant implications for Army ta
 
 \paragraph{Educational Investment Allocation} Findings regarding the impact of various educational experiences on career trajectories could inform more strategic allocation of limited educational opportunity slots and resources.
 
-%\printbibliography
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\begin{thebibliography}{99}
+
+\bibitem{visible_network_labs}
+Visible Network Labs. (2023). Social Network Analysis 101: Ultimate Guide. \url{https://visiblenetworklabs.com/guides/social-network-analysis-101/}
+
+\bibitem{indeed_career_trajectory}
+Indeed. What Is a Career Trajectory? (And How To Create One). \url{https://www.indeed.com/career-advice/career-development/what-is-career-trajectory}
+
+\bibitem{cambridge_intelligence_centrality}
+Cambridge Intelligence. (2020). Social Network Analysis: Understanding Centrality Measures. \url{https://cambridge-intelligence.com/keylines-faqs-social-network-analysis/}
+
+\bibitem{mccullagh_women_stem}
+McCullagh, E., et al. (2019). Using social network analysis to track career trajectories of women STEM faculty. \textit{Equality, Diversity and Inclusion: An International Journal}. \url{https://www.emerald.com/insight/content/doi/10.1108/edi-09-2017-0183/full/html}
+
+\bibitem{wikipedia_sna}
+Wikipedia. Social network analysis. \url{https://en.wikipedia.org/wiki/Social_network_analysis}
+
+\bibitem{mccullagh_hidden_patterns}
+McCullagh, E., et al. (2019). Hidden patterns: Using social network analysis to track career trajectories of women STEM faculty. \url{https://researchwith.njit.edu/en/publications/hidden-patterns-using-social-network-analysis-to-track-career-tra}
+
+\bibitem{wasserman_faust_archive}
+Wasserman, S., \& Faust, K. (1994). Social network analysis: methods and applications. Internet Archive. \url{https://archive.org/details/SocialnetworkanalysisWassermanFaust1994}
+
+\bibitem{clochard_network_2022}
+Clochard, A. (2022). Using Network Analysis of Job Transitions to Inform Career Advice. MIT DSpace. \url{https://dspace.mit.edu/bitstream/handle/1721.1/143136/clochard_axellecb_sm_tpp_eecs_2022.pdf}
+
+\bibitem{butts_methodological_2008}
+Butts, C. T. (2008). Social Network Analysis: An Introduction. ICPSR Summer Program. \url{https://www.icpsr.umich.edu/summerprog/biblio/2012/Social\%20Network\%20Analysis\%20An\%20Introduction.pdf}
+
+\bibitem{motley_women_ad}
+Motley, M. C., Jensen, J. A., Weight, E. A., \& Bates, S. (2025). The Road Less Traveled: Analyzing the Career Paths of Women Athletic Directors Utilizing Social Network Analysis. \textit{Journal of Issues in Intercollegiate Athletics}, 18(1). \url{https://scholarcommons.sc.edu/jiia/vol18/iss1/3/}
+
+\bibitem{insna}
+International Network for Social Network Analysis. \url{https://www.insna.org}
+
+\end{thebibliography}
 
 \end{document}
